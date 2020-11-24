@@ -1,0 +1,1045 @@
+
+-- -----------------------------------------------------
+-- Schema WebIntroduce
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema WebIntroduce
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `WebIntroduce` DEFAULT CHARACTER SET utf8 ;
+USE `WebIntroduce` ;
+
+-- -----------------------------------------------------
+-- Table `WebIntroduce`.`Account`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `WebIntroduce`.`Account` (
+  `User` NVARCHAR(256) NOT NULL,
+  `Password` NVARCHAR(256) NOT NULL,
+  `Email` NVARCHAR(256) NOT NULL,
+  PRIMARY KEY (`User`),
+  UNIQUE INDEX `user_UNIQUE` (`User` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `WebIntroduce`.`Properties`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `WebIntroduce`.`Properties` (
+  `IDProperty` NVARCHAR(50) NOT NULL,
+  `Text` NVARCHAR(256) NULL,
+  `Content` NVARCHAR(5000) NULL,
+  `Color` NVARCHAR(50) NULL,
+  `Font` NVARCHAR(50) NULL,
+  `Size` NVARCHAR(50) NULL,
+  `Type_B_I_U` NVARCHAR(50) NULL,
+  `Link` NVARCHAR(256) NULL,
+  `Images` NVARCHAR(256) NULL,
+  `Show` NVARCHAR(1) NULL COMMENT '0= false, 1 = true',
+  `Order` NVARCHAR(50) NULL,
+  `Left` NVARCHAR(50) NULL,
+  `Number` NVARCHAR(50) NULL COMMENT 'Number of Panel',
+  PRIMARY KEY (`IDProperty`),
+  UNIQUE INDEX `IDProperty_UNIQUE` (`IDProperty` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `WebIntroduce`.`HomePage`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `WebIntroduce`.`HomePage` (
+  `IDHomePage` NVARCHAR(50) NOT NULL,
+  `HomePageBackGround` NVARCHAR(50) NULL,
+  `NameHomePage` NVARCHAR(50) NULL,
+  `MenuBar_1` NVARCHAR(50) NULL,
+  `MenuBar_2` NVARCHAR(50) NULL,
+  `MenuBar_3` NVARCHAR(50) NULL,
+  `MenuBar_4` NVARCHAR(50) NULL,
+  `TitleBanner` NVARCHAR(50) NULL,
+  `DescriptionBanner` NVARCHAR(50) NULL,
+  `LinkBanner` NVARCHAR(50) NULL,
+  `ButtonLeftBanner` NVARCHAR(50) NULL,
+  `ButtonRightBanner` NVARCHAR(50) NULL,
+  `TitlePanelProduct` NVARCHAR(50) NULL COMMENT 'Tên của Pannel sản phẩm',
+  `LinkPanelProduct` NVARCHAR(50) NULL COMMENT 'Thường link đến trang AllProduct',
+  `NameProduct` NVARCHAR(50) NULL COMMENT 'Tên Của sản phẩm, được lưu trong Csdl. chỉ chỉnh thuộc tính màu, cỡ, font thôi',
+  `ButtonLeftProduct` NVARCHAR(50) NULL COMMENT 'Nút để chuyển load sản phẩm tiếp theo slider',
+  `ButtonRightProduct` NVARCHAR(50) NULL,
+  `TitlePanelNews` NVARCHAR(50) NULL COMMENT 'Tên Của banner News',
+  `LinkPanelNews` NVARCHAR(50) NULL COMMENT 'Tên của link, thường là All News',
+  `NameNews` NVARCHAR(50) NULL COMMENT 'Tên của tin tức',
+  `DateNews` NVARCHAR(50) NULL COMMENT 'Property của chữ ngày tháng năm',
+  `TitlePanelVideo` NVARCHAR(50) NULL COMMENT 'Tên của panel Video',
+  `LinkPanelVideo` NVARCHAR(50) NULL COMMENT 'Link properti thưởng dẫn đến Trang youtube',
+  `ContactPanelTitle` NVARCHAR(50) NULL COMMENT 'Footer\n',
+  `Contact_1` NVARCHAR(50) NULL COMMENT 'Hinh anh',
+  `Contact_2` NVARCHAR(50) NULL COMMENT 'hinh anh',
+  `Contact_3` NVARCHAR(50) NULL,
+  `Icon` NVARCHAR(50) NULL,
+  `LinkFooter_1` NVARCHAR(50) NULL,
+  `LinkFooter_2` NVARCHAR(50) NULL,
+  `LinkFooter_3` NVARCHAR(50) NULL,
+  `LinkFooter_4` NVARCHAR(50) NULL,
+  `LinkFooter_5` NVARCHAR(50) NULL,
+  `LinkFooter_6` NVARCHAR(50) NULL,
+  `CopyRight` NVARCHAR(50) NULL,
+  PRIMARY KEY (`IDHomePage`),
+  INDEX `FK_MenuBar_1_idx` (`MenuBar_1` ASC) VISIBLE,
+  INDEX `FK_MenuBar_2_idx` (`MenuBar_2` ASC) VISIBLE,
+  INDEX `FK_Menu_3_idx` (`MenuBar_3` ASC) VISIBLE,
+  INDEX `FK_MenuBar_4_idx` (`MenuBar_4` ASC) VISIBLE,
+  INDEX `FK_TitleBanner_idx` (`TitleBanner` ASC) VISIBLE,
+  INDEX `FK_DescriptionBanner_idx` (`DescriptionBanner` ASC) VISIBLE,
+  INDEX `FK_LinkBanner_idx` (`LinkBanner` ASC) VISIBLE,
+  INDEX `FK_ButtonLeftBanner_idx` (`ButtonLeftBanner` ASC) VISIBLE,
+  INDEX `FK_ButtonRightBanner_idx` (`ButtonRightBanner` ASC) VISIBLE,
+  INDEX `FK_TittlePanelProduct_idx` (`TitlePanelProduct` ASC) VISIBLE,
+  INDEX `FK_LinkPanelProduct_idx` (`LinkPanelProduct` ASC) VISIBLE,
+  INDEX `FK_NameProduct_idx` (`NameProduct` ASC) VISIBLE,
+  INDEX `FK_ButtonLeftProduct_idx` (`ButtonLeftProduct` ASC) VISIBLE,
+  INDEX `FK_ButtonRightProduct_idx` (`ButtonRightProduct` ASC) VISIBLE,
+  INDEX `FK_TittlePanelNews_idx` (`TitlePanelNews` ASC) VISIBLE,
+  INDEX `FK_LinkPanelNews_idx` (`LinkPanelNews` ASC) VISIBLE,
+  INDEX `FK_NameNews_idx` (`NameNews` ASC) VISIBLE,
+  INDEX `FK_DateNews_idx` (`DateNews` ASC) VISIBLE,
+  INDEX `FK_TitlePanelVideo_idx` (`TitlePanelVideo` ASC) VISIBLE,
+  INDEX `FK_LinkPanelVideo_idx` (`LinkPanelVideo` ASC) VISIBLE,
+  INDEX `FK_ContactPanelTitle_idx` (`ContactPanelTitle` ASC) VISIBLE,
+  INDEX `FK_Contact_1_idx` (`Contact_1` ASC) VISIBLE,
+  INDEX `FK_Contact_2_idx` (`Contact_2` ASC) VISIBLE,
+  INDEX `FK_Contact_3_idx` (`Contact_3` ASC) VISIBLE,
+  INDEX `FK_icon_idx` (`Icon` ASC) VISIBLE,
+  INDEX `LinkFooter_1_idx` (`LinkFooter_1` ASC) VISIBLE,
+  INDEX `LinkFooter_2_idx` (`LinkFooter_2` ASC) VISIBLE,
+  INDEX `LinkFooter_3_idx` (`LinkFooter_3` ASC) VISIBLE,
+  INDEX `LinkFooter_4_idx` (`LinkFooter_4` ASC) VISIBLE,
+  INDEX `LinkFooter_5_idx` (`LinkFooter_5` ASC) VISIBLE,
+  INDEX `LinkFooter_6_idx` (`LinkFooter_6` ASC) VISIBLE,
+  INDEX `CopyRight_idx` (`CopyRight` ASC) VISIBLE,
+  INDEX `FK_HomeBackGround_idx` (`HomePageBackGround` ASC) VISIBLE,
+  CONSTRAINT `FK_NameHomePage`
+    FOREIGN KEY (`NameHomePage`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_MenuBar_1`
+    FOREIGN KEY (`MenuBar_1`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_MenuBar_2`
+    FOREIGN KEY (`MenuBar_2`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_MenuBar_3`
+    FOREIGN KEY (`MenuBar_3`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_MenuBar_4`
+    FOREIGN KEY (`MenuBar_4`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_TitleBanner`
+    FOREIGN KEY (`TitleBanner`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DescriptionBannerHome`
+    FOREIGN KEY (`DescriptionBanner`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_LinkBanner`
+    FOREIGN KEY (`LinkBanner`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ButtonLeftBanner`
+    FOREIGN KEY (`ButtonLeftBanner`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ButtonRightBanner`
+    FOREIGN KEY (`ButtonRightBanner`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_TitlePanelProduct`
+    FOREIGN KEY (`TitlePanelProduct`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_LinkPanelProduct`
+    FOREIGN KEY (`LinkPanelProduct`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_NameProduct`
+    FOREIGN KEY (`NameProduct`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ButtonLeftProduct`
+    FOREIGN KEY (`ButtonLeftProduct`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ButtonRightProduct`
+    FOREIGN KEY (`ButtonRightProduct`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_TittlePanelNews`
+    FOREIGN KEY (`TitlePanelNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_LinkPanelNewsHome`
+    FOREIGN KEY (`LinkPanelNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_NameNews`
+    FOREIGN KEY (`NameNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DateNews`
+    FOREIGN KEY (`DateNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_TitlePanelVideo`
+    FOREIGN KEY (`TitlePanelVideo`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_LinkPanelVideo`
+    FOREIGN KEY (`LinkPanelVideo`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ContactPanelTitle`
+    FOREIGN KEY (`ContactPanelTitle`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_Contact_1`
+    FOREIGN KEY (`Contact_1`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_Contact_2`
+    FOREIGN KEY (`Contact_2`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_Contact_3`
+    FOREIGN KEY (`Contact_3`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_icon`
+    FOREIGN KEY (`Icon`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `LinkFooter_1`
+    FOREIGN KEY (`LinkFooter_1`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `LinkFooter_2`
+    FOREIGN KEY (`LinkFooter_2`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `LinkFooter_3`
+    FOREIGN KEY (`LinkFooter_3`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `LinkFooter_4`
+    FOREIGN KEY (`LinkFooter_4`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `LinkFooter_5`
+    FOREIGN KEY (`LinkFooter_5`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `LinkFooter_6`
+    FOREIGN KEY (`LinkFooter_6`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `CopyRight`
+    FOREIGN KEY (`CopyRight`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_HomeBackGround`
+    FOREIGN KEY (`HomePageBackGround`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `WebIntroduce`.`AllProducts`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `WebIntroduce`.`AllProducts` (
+  `IDProduct` NVARCHAR(50) NOT NULL,
+  `AllProBackGround` NVARCHAR(50) NULL,
+  `TitleAllProduct` NVARCHAR(50) NULL COMMENT 'Normal is \"All Product\"',
+  `NameProductBanner` NVARCHAR(50) NULL,
+  `DescriptionBanner` NVARCHAR(50) NULL,
+  `LinkBanner` NVARCHAR(50) NULL,
+  `ButtonLeftBanner` NVARCHAR(50) NULL,
+  `ButtonRightBanner` NVARCHAR(50) NULL,
+  `NameProduct` NVARCHAR(50) NULL COMMENT 'Ten cua san pham',
+  `TitleFeaturedProduct` NVARCHAR(50) NULL,
+  `NameFeaturedProduct` NVARCHAR(50) NULL,
+  PRIMARY KEY (`IDProduct`),
+  INDEX `FK_TitleAllProduct_idx` (`TitleAllProduct` ASC) VISIBLE,
+  INDEX `FK_NameProductBanner_idx` (`NameProductBanner` ASC) VISIBLE,
+  INDEX `FK_DescriptionBanner_idx` (`DescriptionBanner` ASC) VISIBLE,
+  INDEX `FK_LinkBanner_idx` (`LinkBanner` ASC) VISIBLE,
+  INDEX `FK_ButtonLeftBannerPro_idx` (`ButtonLeftBanner` ASC) VISIBLE,
+  INDEX `FK_ButtonRightBannerPro_idx` (`ButtonRightBanner` ASC) VISIBLE,
+  INDEX `FK_NameProduct_idx` (`NameProduct` ASC) VISIBLE,
+  INDEX `FK_TitleFeaturedProduct_idx` (`TitleFeaturedProduct` ASC) VISIBLE,
+  INDEX `FK_NameFeatureProduct_idx` (`NameFeaturedProduct` ASC) VISIBLE,
+  INDEX `FK_ProBackGround_idx` (`AllProBackGround` ASC) VISIBLE,
+  CONSTRAINT `FK_TitleAllProduct`
+    FOREIGN KEY (`TitleAllProduct`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_NameProductBannerAllPro`
+    FOREIGN KEY (`NameProductBanner`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DescriptionBannerAll`
+    FOREIGN KEY (`DescriptionBanner`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_LinkBannerAllPro`
+    FOREIGN KEY (`LinkBanner`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ButtonLeftBannerAllPro`
+    FOREIGN KEY (`ButtonLeftBanner`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ButtonRightBannerAllPro`
+    FOREIGN KEY (`ButtonRightBanner`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_NameProductAllPro`
+    FOREIGN KEY (`NameProduct`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_TitleFeaturedProduct`
+    FOREIGN KEY (`TitleFeaturedProduct`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_NameFeatureProduct`
+    FOREIGN KEY (`NameFeaturedProduct`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ProBackGround`
+    FOREIGN KEY (`AllProBackGround`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `WebIntroduce`.`AllNews`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `WebIntroduce`.`AllNews` (
+  `IDAllNews` NVARCHAR(50) NOT NULL,
+  `AllNewsBackGround` NVARCHAR(50) NULL,
+  `TitleBannerNews` NVARCHAR(50) NULL,
+  `DescriptionBannerNews` NVARCHAR(50) NULL,
+  `LinkBannerNews` NVARCHAR(50) NULL,
+  `DateBannerNews` NVARCHAR(50) NULL,
+  `NameNewsPanel` NVARCHAR(50) NULL,
+  `DateNewsPanel` NVARCHAR(50) NULL,
+  `DescriptionNewsPanel` NVARCHAR(50) NULL,
+  `LinkNewsPanel` NVARCHAR(50) NULL,
+  PRIMARY KEY (`IDAllNews`),
+  INDEX `FK_AllNewsBackGround_idx` (`AllNewsBackGround` ASC) VISIBLE,
+  INDEX `FK_TitleBannerNews_idx` (`TitleBannerNews` ASC) VISIBLE,
+  INDEX `FK_DescriptionBannerNews_idx` (`DescriptionBannerNews` ASC) VISIBLE,
+  INDEX `FK_LinkBannerNews_idx` (`LinkBannerNews` ASC) VISIBLE,
+  INDEX `FK_DateBannerNews_idx` (`DateBannerNews` ASC) VISIBLE,
+  INDEX `FK_NameNewsPanel_idx` (`NameNewsPanel` ASC) VISIBLE,
+  INDEX `FK_DateNewsPanel_idx` (`DateNewsPanel` ASC) VISIBLE,
+  INDEX `FK_DescriptionNewsPanel_idx` (`DescriptionNewsPanel` ASC) VISIBLE,
+  INDEX `FK_LinkNewsPanel_idx` (`LinkNewsPanel` ASC) VISIBLE,
+  CONSTRAINT `FK_AllNewsBackGround`
+    FOREIGN KEY (`AllNewsBackGround`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_TitleBannerNews`
+    FOREIGN KEY (`TitleBannerNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DescriptionBannerNews`
+    FOREIGN KEY (`DescriptionBannerNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_LinkBannerNews`
+    FOREIGN KEY (`LinkBannerNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DateBannerNews`
+    FOREIGN KEY (`DateBannerNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_NameNewsPanel`
+    FOREIGN KEY (`NameNewsPanel`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DateNewsPanel`
+    FOREIGN KEY (`DateNewsPanel`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DescriptionNewsPanel`
+    FOREIGN KEY (`DescriptionNewsPanel`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_LinkNewsPanel`
+    FOREIGN KEY (`LinkNewsPanel`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `WebIntroduce`.`Product`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `WebIntroduce`.`Product` (
+  `IDProduct` NVARCHAR(50) NOT NULL,
+  `ProductPagesBackGround` NVARCHAR(50) NULL,
+  `IconProduct` NVARCHAR(50) NULL,
+  `NameProduct` NVARCHAR(50) NULL,
+  `SmallIcon_1` NVARCHAR(50) NULL,
+  `SmallIcon_2` NVARCHAR(50) NULL,
+  `SmallIcon_3` NVARCHAR(50) NULL,
+  PRIMARY KEY (`IDProduct`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `WebIntroduce`.`News`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `WebIntroduce`.`News` (
+  `IDNews` NVARCHAR(50) NOT NULL,
+  `IDProduct` NVARCHAR(50) NOT NULL,
+  `NewsPageBackGround` NVARCHAR(50) NULL,
+  `IconNews` NVARCHAR(50) NULL,
+  `BannerNews` NVARCHAR(50) NULL,
+  `NameNews` NVARCHAR(50) NULL,
+  `DescriptionNews` NVARCHAR(50) NULL,
+  `DateNews` NVARCHAR(50) NULL,
+  `ContentNews_1` NVARCHAR(50) NULL,
+  `VideoNews` NVARCHAR(50) NULL,
+  `ContentNews_2` NVARCHAR(50) NULL,
+  `ImageNews_1` NVARCHAR(50) NULL,
+  `ContentNews_3` NVARCHAR(50) NULL,
+  `ImageNews_2` NVARCHAR(50) NULL,
+  `ImageNews_3` NVARCHAR(50) NULL,
+  `ImageNews_4` NVARCHAR(50) NULL,
+  `ImageNews_5` NVARCHAR(50) NULL,
+  `TitleMoreNews` NVARCHAR(50) NULL,
+  `DateMoreNews` NVARCHAR(50) NULL,
+  `NameMoreNews` NVARCHAR(50) NULL,
+  `LinkMoreNews` NVARCHAR(50) NULL,
+  PRIMARY KEY (`IDNews`),
+  INDEX `FK_NewsPagesBackGround_idx` (`NewsPageBackGround` ASC) VISIBLE,
+  INDEX `FK_IconNews_idx` (`IconNews` ASC) VISIBLE,
+  INDEX `FK_BannerNews_idx` (`BannerNews` ASC) VISIBLE,
+  INDEX `FK_NameNews_idx` (`NameNews` ASC) VISIBLE,
+  INDEX `FK_DescriptionNews_idx` (`DescriptionNews` ASC) VISIBLE,
+  INDEX `FK_DateNews_idx` (`DateNews` ASC) VISIBLE,
+  INDEX `FK_ContentNews_idx` (`ContentNews_1` ASC) VISIBLE,
+  INDEX `FK_VideoNews_idx` (`VideoNews` ASC) VISIBLE,
+  INDEX `FK_ContenNews_2_idx` (`ContentNews_2` ASC) VISIBLE,
+  INDEX `FK_ImageNews_1_idx` (`ImageNews_1` ASC) VISIBLE,
+  INDEX `FK_ContentNews_3_idx` (`ContentNews_3` ASC) VISIBLE,
+  INDEX `FK_ImageNews_2_idx` (`ImageNews_2` ASC) VISIBLE,
+  INDEX `FK_ImageNews_3_idx` (`ImageNews_3` ASC) VISIBLE,
+  INDEX `FK_ImageNews_4_idx` (`ImageNews_4` ASC) VISIBLE,
+  INDEX `FK_ImageNews_5_idx` (`ImageNews_5` ASC) VISIBLE,
+  INDEX `FK_TitleMoreNews_idx` (`TitleMoreNews` ASC) VISIBLE,
+  INDEX `FK_DateMoreNews_idx` (`DateMoreNews` ASC) VISIBLE,
+  INDEX `FK_NameMoreNews_idx` (`NameMoreNews` ASC) VISIBLE,
+  INDEX `FK_LinkMoreNews_idx` (`LinkMoreNews` ASC) VISIBLE,
+  INDEX `FK_IDProduct_idx` (`IDProduct` ASC) VISIBLE,
+  CONSTRAINT `FK_IDProduct_News`
+    FOREIGN KEY (`IDProduct`)
+    REFERENCES `WebIntroduce`.`Product` (`IDProduct`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_NewsPagesBackGround`
+    FOREIGN KEY (`NewsPageBackGround`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_IconNews_News`
+    FOREIGN KEY (`IconNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_BannerNews_News`
+    FOREIGN KEY (`BannerNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_NameNews_News`
+    FOREIGN KEY (`NameNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DescriptionNews_News`
+    FOREIGN KEY (`DescriptionNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DateNews_News`
+    FOREIGN KEY (`DateNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ContentNews_1_News`
+    FOREIGN KEY (`ContentNews_1`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_VideoNews_News`
+    FOREIGN KEY (`VideoNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ContentNews_2_News`
+    FOREIGN KEY (`ContentNews_2`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ImageNews_1_News`
+    FOREIGN KEY (`ImageNews_1`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ContentNews_3_News`
+    FOREIGN KEY (`ContentNews_3`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ImageNews_2_News`
+    FOREIGN KEY (`ImageNews_2`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ImageNews_3_News`
+    FOREIGN KEY (`ImageNews_3`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ImageNews_4_News`
+    FOREIGN KEY (`ImageNews_4`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ImageNews_5_News`
+    FOREIGN KEY (`ImageNews_5`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_TitleMoreNews_News`
+    FOREIGN KEY (`TitleMoreNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DateMoreNews_News`
+    FOREIGN KEY (`DateMoreNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_NameMoreNews_News`
+    FOREIGN KEY (`NameMoreNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_LinkMoreNews_News`
+    FOREIGN KEY (`LinkMoreNews`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `WebIntroduce`.`Header`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `WebIntroduce`.`Header` (
+  `IDHeader` NVARCHAR(50) NOT NULL COMMENT 'Use to Check Show\nand Order\n',
+  `IDProduct` NVARCHAR(50) NOT NULL,
+  `BackGroundHeader` NVARCHAR(50) NULL,
+  `BannerLeftHeader` NVARCHAR(50) NULL,
+  `BannerRightHeader` NVARCHAR(50) NULL,
+  `MenuSlotHeader_1` NVARCHAR(50) NULL,
+  `MenuSlotHeader_2` NVARCHAR(50) NULL,
+  `MenuSlotHeader_3` NVARCHAR(50) NULL,
+  PRIMARY KEY (`IDHeader`),
+  INDEX `FK_IDHeader_idx` (`IDHeader` ASC) VISIBLE,
+  INDEX `FK_BackGroundHeader_idx` (`BackGroundHeader` ASC) VISIBLE,
+  INDEX `FK_BannerLeftHeader_idx` (`BannerLeftHeader` ASC) VISIBLE,
+  INDEX `FK_BannerRightHeader_idx` (`BannerRightHeader` ASC) VISIBLE,
+  INDEX `FK_MenuSlot_1_idx` (`MenuSlotHeader_1` ASC) VISIBLE,
+  INDEX `FK_MenuSlot_2_idx` (`MenuSlotHeader_2` ASC) VISIBLE,
+  INDEX `FK_MenuSlot_3_idx` (`MenuSlotHeader_3` ASC) VISIBLE,
+  CONSTRAINT `FK_IDProductHeader`
+    FOREIGN KEY (`IDProduct`)
+    REFERENCES `WebIntroduce`.`Product` (`IDProduct`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_IDHeader`
+    FOREIGN KEY (`IDHeader`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_BackGroundHeader`
+    FOREIGN KEY (`BackGroundHeader`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_BannerLeftHeader`
+    FOREIGN KEY (`BannerLeftHeader`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_BannerRightHeader`
+    FOREIGN KEY (`BannerRightHeader`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_MenuSlot_1`
+    FOREIGN KEY (`MenuSlotHeader_1`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_MenuSlot_2`
+    FOREIGN KEY (`MenuSlotHeader_2`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_MenuSlot_3`
+    FOREIGN KEY (`MenuSlotHeader_3`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `WebIntroduce`.`ImageVideoBanner`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `WebIntroduce`.`ImageVideoBanner` (
+  `ID_ImageVideoBanner` NVARCHAR(50) NOT NULL COMMENT 'Will Save Show, Order, Posotion, number of panel',
+  `IDProduct` NVARCHAR(50) NOT NULL,
+  `BackGroundImage` NVARCHAR(50) NULL,
+  `TitleVideo` NVARCHAR(50) NULL COMMENT 'Link Video Will Save in Here\n',
+  `DescriptionVideo` NVARCHAR(50) NULL,
+  PRIMARY KEY (`ID_ImageVideoBanner`),
+  INDEX `FK_IDImageBanner_idx` (`ID_ImageVideoBanner` ASC) VISIBLE,
+  INDEX `FK_BackGroundImage_idx` (`BackGroundImage` ASC) VISIBLE,
+  INDEX `FK_TitleVideo_idx` (`TitleVideo` ASC) VISIBLE,
+  INDEX `FK_DescriptionVIdeo_idx` (`DescriptionVideo` ASC) VISIBLE,
+  CONSTRAINT `FK_IDProductImageBanner`
+    FOREIGN KEY (`IDProduct`)
+    REFERENCES `WebIntroduce`.`Product` (`IDProduct`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_IDImageVideoBanner`
+    FOREIGN KEY (`ID_ImageVideoBanner`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_BackGroundImage`
+    FOREIGN KEY (`BackGroundImage`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_TitleVideo`
+    FOREIGN KEY (`TitleVideo`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DescriptionVIdeo`
+    FOREIGN KEY (`DescriptionVideo`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `WebIntroduce`.`VideoBackGroundBanner`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `WebIntroduce`.`VideoBackGroundBanner` (
+  `IDVideoBackGroundBanner` NVARCHAR(50) NOT NULL,
+  `IDProduct` NVARCHAR(50) NOT NULL,
+  `TitleVideo` NVARCHAR(50) NULL COMMENT 'Contain Link, name, property anem',
+  `DescriptionVideo` NVARCHAR(50) NULL,
+  PRIMARY KEY (`IDVideoBackGroundBanner`),
+  INDEX `FK_DescriptionVideoBack_idx` (`DescriptionVideo` ASC) VISIBLE,
+  INDEX `FK_TitleVideoBack_idx` (`TitleVideo` ASC) VISIBLE,
+  INDEX `FK_IDProduct_idx` (`IDProduct` ASC) VISIBLE,
+  CONSTRAINT `FK_IDVideoBackBanner`
+    FOREIGN KEY (`IDVideoBackGroundBanner`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_IDProduct_VideoBackBanner`
+    FOREIGN KEY (`IDProduct`)
+    REFERENCES `WebIntroduce`.`Product` (`IDProduct`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_TitleVideoBack`
+    FOREIGN KEY (`TitleVideo`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DescriptionVideoBack`
+    FOREIGN KEY (`DescriptionVideo`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `WebIntroduce`.`NewsContent`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `WebIntroduce`.`NewsContent` (
+  `IDNewsContent` NVARCHAR(50) NOT NULL,
+  `ID_Product` NVARCHAR(50) NOT NULL,
+  `BackGroundNewsContent` NVARCHAR(50) NULL,
+  `TitleNewsContent` NVARCHAR(50) NULL,
+  `LinkEndNewsContent` NVARCHAR(50) NULL COMMENT 'thuong la nut MORE cuoi NewsContent',
+  `DateNewsProperies` NVARCHAR(50) NULL,
+  `NameNewsProperties` NVARCHAR(50) NULL,
+  `LinkNewsProperties` NVARCHAR(50) NULL,
+  PRIMARY KEY (`IDNewsContent`),
+  INDEX `FK_IDProduct_idx` (`ID_Product` ASC) VISIBLE,
+  INDEX `FK_BackGroundNewsContent_idx` (`BackGroundNewsContent` ASC) VISIBLE,
+  INDEX `FK_LinkEndNewsContent_idx` (`LinkEndNewsContent` ASC) VISIBLE,
+  INDEX `FK_TitleNewsContent_idx` (`TitleNewsContent` ASC) VISIBLE,
+  INDEX `FK_DateNewsContent_idx` (`DateNewsProperies` ASC) VISIBLE,
+  INDEX `FK_NameNewsContent_idx` (`NameNewsProperties` ASC) VISIBLE,
+  INDEX `FK_LinkNewsContent_idx` (`LinkNewsProperties` ASC) VISIBLE,
+  CONSTRAINT `FK_IDNewsContent`
+    FOREIGN KEY (`IDNewsContent`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_IDProduct_NewsContent`
+    FOREIGN KEY (`ID_Product`)
+    REFERENCES `WebIntroduce`.`Product` (`IDProduct`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_BackGroundNewsContent`
+    FOREIGN KEY (`BackGroundNewsContent`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_TitleNewsContent`
+    FOREIGN KEY (`TitleNewsContent`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_LinkEndNewsContent`
+    FOREIGN KEY (`LinkEndNewsContent`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DateNewsContent`
+    FOREIGN KEY (`DateNewsProperies`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_NameNewsContent`
+    FOREIGN KEY (`NameNewsProperties`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_LinkNewsContent`
+    FOREIGN KEY (`LinkNewsProperties`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `WebIntroduce`.`ImageBanner`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `WebIntroduce`.`ImageBanner` (
+  `ID_ImageBanner` NVARCHAR(50) NOT NULL,
+  `ID_Product` NVARCHAR(50) NOT NULL,
+  `BackGroundImageBanner` NVARCHAR(50) NULL,
+  `NameImageBanner` NVARCHAR(50) NULL,
+  `DescriptionImageBanner` NVARCHAR(50) NULL,
+  PRIMARY KEY (`ID_ImageBanner`),
+  INDEX `FK_Product_idx` (`ID_Product` ASC) VISIBLE,
+  INDEX `FK_BackGroundImageBanner_idx` (`BackGroundImageBanner` ASC) VISIBLE,
+  INDEX `FK_NameImageBanner_idx` (`NameImageBanner` ASC) VISIBLE,
+  INDEX `FK_DescriptionBanner_idx` (`DescriptionImageBanner` ASC) VISIBLE,
+  CONSTRAINT `FK_ImageBanner`
+    FOREIGN KEY (`ID_ImageBanner`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_Product_ImageBanner`
+    FOREIGN KEY (`ID_Product`)
+    REFERENCES `WebIntroduce`.`Product` (`IDProduct`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_BackGroundImageBanner`
+    FOREIGN KEY (`BackGroundImageBanner`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_NameImageBanner`
+    FOREIGN KEY (`NameImageBanner`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DescriptionBanner`
+    FOREIGN KEY (`DescriptionImageBanner`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `WebIntroduce`.`ImagePicWord`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `WebIntroduce`.`ImagePicWord` (
+  `ID_ImagePicWord` NVARCHAR(50) NOT NULL,
+  `ID_Product` NVARCHAR(50) NOT NULL,
+  `Image_1` NVARCHAR(50) NULL COMMENT 'Image not containWord\n',
+  `Image_2` NVARCHAR(50) NULL,
+  `TitleImagePicWord` NVARCHAR(50) NULL,
+  `DescriptionImagePicWord` NVARCHAR(50) NULL,
+  PRIMARY KEY (`ID_ImagePicWord`),
+  INDEX `FK_IDProduct_idx` (`ID_Product` ASC) VISIBLE,
+  INDEX `FK_ImagePicWord_1_idx` (`Image_1` ASC) VISIBLE,
+  INDEX `FK_ImagePicWord_2_idx` (`Image_2` ASC) VISIBLE,
+  INDEX `FK_TitleImagePicWord_idx` (`TitleImagePicWord` ASC) VISIBLE,
+  INDEX `FK_DescriptionImagePicWord_idx` (`DescriptionImagePicWord` ASC) VISIBLE,
+  CONSTRAINT `FK_IDImagePicWord`
+    FOREIGN KEY (`ID_ImagePicWord`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_IDProductImagePicWord`
+    FOREIGN KEY (`ID_Product`)
+    REFERENCES `WebIntroduce`.`Product` (`IDProduct`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ImagePicWord_1`
+    FOREIGN KEY (`Image_1`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ImagePicWord_2`
+    FOREIGN KEY (`Image_2`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_TitleImagePicWord`
+    FOREIGN KEY (`TitleImagePicWord`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DescriptionImagePicWord`
+    FOREIGN KEY (`DescriptionImagePicWord`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `WebIntroduce`.`ImagePicWordOrizantal`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `WebIntroduce`.`ImagePicWordOrizantal` (
+  `ID_ImagePicWordOrizontal` NVARCHAR(50) NOT NULL,
+  `ID_Product` NVARCHAR(50) NOT NULL,
+  `Image_1` NVARCHAR(50) NULL COMMENT 'Image not containWord\n',
+  `Image_2` NVARCHAR(50) NULL,
+  `TitleImagePicWordOri` NVARCHAR(50) NULL,
+  `DescriptionImagePicWordOri` NVARCHAR(50) NULL,
+  PRIMARY KEY (`ID_ImagePicWordOrizontal`),
+  INDEX `FK_IDProduct_idx` (`ID_Product` ASC) VISIBLE,
+  INDEX `FK_ImagePicWord_1_idx` (`Image_1` ASC) VISIBLE,
+  INDEX `FK_ImagePicWord_2_idx` (`Image_2` ASC) VISIBLE,
+  INDEX `FK_TitleImagePicWord_idx` (`TitleImagePicWordOri` ASC) VISIBLE,
+  INDEX `FK_DescriptionImagePicWord_idx` (`DescriptionImagePicWordOri` ASC) VISIBLE,
+  CONSTRAINT `FK_IDImagePicWordOrizantal`
+    FOREIGN KEY (`ID_ImagePicWordOrizontal`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_IDProduct_ImagePicOri`
+    FOREIGN KEY (`ID_Product`)
+    REFERENCES `WebIntroduce`.`Product` (`IDProduct`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ImagePicWordOrizantal_1`
+    FOREIGN KEY (`Image_1`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ImagePicWordOrizantal_2`
+    FOREIGN KEY (`Image_2`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_TitleImagePicWordOrizantal`
+    FOREIGN KEY (`TitleImagePicWordOri`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DescriptionImagePicWordOrizantal`
+    FOREIGN KEY (`DescriptionImagePicWordOri`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `WebIntroduce`.`ThreePicPanel`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `WebIntroduce`.`ThreePicPanel` (
+  `ID_ThreePicPanel` NVARCHAR(50) NOT NULL,
+  `ID_Product` NVARCHAR(50) NOT NULL,
+  `BackGroundThreePic` NVARCHAR(50) NULL,
+  `TitleThreePic` NVARCHAR(50) NULL,
+  `DescriptionThreePic` NVARCHAR(50) NULL,
+  PRIMARY KEY (`ID_ThreePicPanel`),
+  INDEX `FK_IDPropuct_idx` (`ID_Product` ASC) VISIBLE,
+  INDEX `FK_BackGroundThreePic_idx` (`BackGroundThreePic` ASC) VISIBLE,
+  INDEX `FK_DescriptionThreePic_idx` (`DescriptionThreePic` ASC) VISIBLE,
+  INDEX `FK_TitleThreePic_idx` (`TitleThreePic` ASC) VISIBLE,
+  CONSTRAINT `FK_ThreePicPanel`
+    FOREIGN KEY (`ID_ThreePicPanel`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_IDPropuct_ThreePic`
+    FOREIGN KEY (`ID_Product`)
+    REFERENCES `WebIntroduce`.`Product` (`IDProduct`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_BackGroundThreePic`
+    FOREIGN KEY (`BackGroundThreePic`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_TitleThreePic`
+    FOREIGN KEY (`TitleThreePic`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DescriptionThreePic`
+    FOREIGN KEY (`DescriptionThreePic`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `WebIntroduce`.`TextImagePanel`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `WebIntroduce`.`TextImagePanel` (
+  `ID_TextImagePanel` NVARCHAR(50) NOT NULL,
+  `ID_Product` NVARCHAR(50) NOT NULL,
+  `BackGroundTextImage` NVARCHAR(50) NULL,
+  `ImageTextImage` NVARCHAR(50) NULL,
+  `TitleTextImage` NVARCHAR(50) NULL,
+  `DescriptionTextImage` NVARCHAR(50) NULL,
+  `LinkTextImage` NVARCHAR(50) NULL,
+  PRIMARY KEY (`ID_TextImagePanel`),
+  INDEX `FK_IDProduct_idx` (`ID_Product` ASC) VISIBLE,
+  INDEX `FK_BackGroundTextImage_idx` (`BackGroundTextImage` ASC) VISIBLE,
+  INDEX `FK_ImageTextImage_idx` (`ImageTextImage` ASC) VISIBLE,
+  INDEX `FK_TitleImagePanel_idx` (`TitleTextImage` ASC) VISIBLE,
+  INDEX `FK_LinkTextImage_idx` (`LinkTextImage` ASC) VISIBLE,
+  INDEX `FK_DescriptionTextImage_idx` (`DescriptionTextImage` ASC) VISIBLE,
+  CONSTRAINT `FK_IDTextImagePanel`
+    FOREIGN KEY (`ID_TextImagePanel`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_IDProduct_TextImagePanel`
+    FOREIGN KEY (`ID_Product`)
+    REFERENCES `WebIntroduce`.`Product` (`IDProduct`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_BackGroundTextImage`
+    FOREIGN KEY (`BackGroundTextImage`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_ImageTextImage`
+    FOREIGN KEY (`ImageTextImage`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_TitleImagePanel`
+    FOREIGN KEY (`TitleTextImage`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_DescriptionTextImage`
+    FOREIGN KEY (`DescriptionTextImage`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_LinkTextImage`
+    FOREIGN KEY (`LinkTextImage`)
+    REFERENCES `WebIntroduce`.`Properties` (`IDProperty`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+
