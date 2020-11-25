@@ -45,12 +45,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=8.0.19.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -124,9 +135,32 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Resources\IconSignIn.png" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap-grid.css.map" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap-grid.min.css.map" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap-reboot.css.map" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap.css.map" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap.min.css.map" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\js\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\js\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\js\bootstrap.min.js.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Pages\LoginPages.aspx" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap-grid.css" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap-grid.min.css" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap-reboot.css" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap-reboot.min.css" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap.css" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap.min.css" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\js\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\js\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\js\bootstrap.js" />
+    <Content Include="Scripts\bootstrap-4.5.3-dist\js\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\CSS\signin.css" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -169,6 +203,8 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Connect\Connected.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -176,6 +212,12 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controller\Account.cs" />
+    <Compile Include="Controller\AccountController.cs" />
+    <Compile Include="Controller\student.cs" />
+    <Compile Include="Controller\studentController.cs" />
+    <Compile Include="Controller\TestController.cs" />
+    <Compile Include="Controller\xxController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -185,6 +227,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoginPages.aspx.cs">
+      <DependentUpon>LoginPages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\LoginPages.aspx.designer.cs">
+      <DependentUpon>LoginPages.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -196,12 +245,14 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
