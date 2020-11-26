@@ -11,7 +11,13 @@ namespace WebIntroduce_BTL.Controller
         private String m_Password;
         private String m_Email;
 
-
+        public Account() { }
+        public Account( String Password)
+        {
+            m_User = "";
+            m_Email = "";
+            m_Password = Password;
+        }
         public string User { get => m_User; set => m_User = value; }
         public string Password { get => m_Password; set => m_Password = value; }
         public string Email { get => m_Email; set => m_Email = value; }

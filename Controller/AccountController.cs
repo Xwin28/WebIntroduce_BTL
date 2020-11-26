@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿
+using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -14,35 +15,72 @@ namespace WebIntroduce_BTL.Controller
     public class AccountController : ApiController
     {
 
-        public Boolean Login(String _id, String _pass)
+        [HttpGet]
+        public string GetLogin(String id)
         {
             // return "value";
             try
             {
                 MySqlConnection conn = Connected.GetDBConnection();
-                String sql = "SELECT * FROM webintroduce.account where User = '"+ _id+ "' and Password = '" + _pass + "' " +
-                    "or Email = '" + _id + "' and Password = '" + _pass + "'";
+                String sql = "SELECT * FROM webintroduce.account WHERE User = '" + id + "';";
                 MySqlDataAdapter Adapter = new MySqlDataAdapter(sql, conn);
                 DataTable m_table = new DataTable();
                 Adapter.Fill(m_table);
                 if (m_table.Rows.Count > 0)
                 {
-                    /*return JsonConvert.SerializeObject(m_table);*/
-                    return true;
+                    return JsonConvert.SerializeObject(m_table);
                 }
                 else
                 {
-                    return false;
+                    return "Error";
                 }
             }
             catch (Exception ex)
             {
-                
-                //return "Error" + ex.ToString();
-                return false;
+                return "Error" + ex.ToString();
             }
-            
+
         }
+
+
+
+
+
+
+
+        /*[HttpGet]
+        public IEnumerable<Account> GetLogin(*//*String _id*//*)
+        {
+            String _id = "User";
+            // return "value";
+
+                MySqlConnection conn = Connected.GetDBConnection();
+                String sql = "SELECT * FROM webintroduce.account where User = '" + _id ;
+                MySqlDataAdapter Adapter = new MySqlDataAdapter(sql, conn);
+                Account m_account = new Account();
+                DataTable m_table = new DataTable();
+                Adapter.Fill(m_table);
+                
+                if (m_table.Rows.Count > 0)
+                {
+
+                    DataRow dataRow = m_table.Select("User = '" + _id +"'").FirstOrDefault();
+                    if (dataRow != null)
+                    {
+                        m_account.Password = (string)dataRow["Password"];
+                    }
+                    
+                    return (IEnumerable<Account>)m_account;
+                    
+                }
+                else
+                {
+                    
+                    return (IEnumerable<Account>)m_account;
+                }
+
+
+        }*/
 
 
         // GET api/<controller>

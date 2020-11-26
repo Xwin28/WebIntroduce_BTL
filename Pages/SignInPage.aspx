@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginPages.aspx.cs" Inherits="WebIntroduce_BTL.Pages.SignInPages" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SignInPage.aspx.cs" Inherits="WebIntroduce_BTL.Pages.SignInPage" %>
 
 <!DOCTYPE html>
 
@@ -36,7 +36,7 @@
 
 
     <label for="inputEmail" class="sr-only">User Name or Email address</label>
-    <input type="email" id="txt_Email" runat="server"  class="form-control" placeholder="User Name or Email address" required="required"/>
+    <input type="text" id="txt_Email" runat="server"  class="form-control" placeholder="User Name or Email address" required="required"/>
 
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password" id="txt_Password" runat="server" class="form-control" placeholder="Password" required="required"/>
