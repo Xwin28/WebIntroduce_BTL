@@ -138,8 +138,11 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Pages\AdminDashboard.aspx" />
     <Content Include="Pages\SignInPage.aspx" />
+    <Content Include="Resources\106_83.png" />
     <Content Include="Resources\IconSignIn.png" />
+    <Content Include="Resources\instagram_3.jpg" />
     <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap-grid.css.map" />
     <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap-grid.min.css.map" />
     <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap-reboot.css.map" />
@@ -163,6 +166,7 @@
     <Content Include="Scripts\bootstrap-4.5.3-dist\js\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\CSS\navbar.css" />
     <Content Include="Scripts\CSS\signin.css" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -230,6 +234,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminDashboard.aspx.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminDashboard.aspx.designer.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SignInPage.aspx.cs">
       <DependentUpon>SignInPage.aspx</DependentUpon>
