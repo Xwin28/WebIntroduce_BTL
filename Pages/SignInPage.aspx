@@ -40,7 +40,13 @@
 
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password" id="txt_Password" runat="server" class="form-control" placeholder="Password" required="required"/>
-  <div class="checkbox mb-3">
+      
+
+            
+            <div class="alert alert-danger" role="alert"<%=_WrongUser %>  >
+        Invalid email address or password! </div>
+  
+    <div class="checkbox mb-3">
     <label>
         <asp:CheckBox ID="Check_Remember" runat="server" Text="&nbsp  Remember me" Font-Size="12pt"  />
         

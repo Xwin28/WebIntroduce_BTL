@@ -16,13 +16,13 @@ namespace WebIntroduce_BTL.Controller
     {
 
         [HttpGet]
-        public string GetLogin(String id)
+        public string GetLogin( String id)
         {
             // return "value";
             try
             {
                 MySqlConnection conn = Connected.GetDBConnection();
-                String sql = "SELECT * FROM webintroduce.account WHERE User = '" + id + "';";
+                String sql = "SELECT * FROM webintroduce.account WHERE BINARY User =  BINARY '" + id + "' or BINARY Email = BINARY'" + id+"';";
                 MySqlDataAdapter Adapter = new MySqlDataAdapter(sql, conn);
                 DataTable m_table = new DataTable();
                 Adapter.Fill(m_table);

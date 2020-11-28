@@ -5,22 +5,38 @@ using System.Net.Http;
 using WebIntroduce_BTL.Controller;
 using Newtonsoft.Json;
 using System.Data;
+using System.Security.Cryptography;
 
 namespace WebIntroduce_BTL.Pages
 {
     public partial class SignInPage : System.Web.UI.Page
     {
+        public String _Error, _WrongUser;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            _WrongUser = "style=" + "\"" + "display:none" + "\"";
+            if (IsPostBack)
+            {
+                
+            }
+            
         }
 
         protected void btn_Login_Click(object sender, EventArgs e)
         {
+
             try
             {
-                String _user = txt_Email.Value.ToString().Trim();
+                String _user = txt_Email.Value.ToString();
+                _user = _user.Replace(".com", "").Trim();
+                 
                 String _pass = txt_Password.Value.ToString().Trim();
+
+
+                SHA256 sha256 = SHA256.Create();
+                byte[] bytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(_pass));
+                String PassEncpt = BitConverter.ToString(bytes);
+
                 // Get data From API
                 HttpClient hc = new HttpClient
                 {
@@ -46,30 +62,37 @@ namespace WebIntroduce_BTL.Pages
                                          }).ToList();
                     String m_tempUser = "";
                     String m_tempPass = "";
+                    String m_tempEmail = "";
                     foreach (Account a in convertedList)
                     {
                         m_tempUser = a.User;
                         m_tempPass = a.Password;
+                        m_tempEmail = a.Email;
                     }
 
-                    if (_user.Equals(m_tempUser) && _pass.Equals(m_tempPass))
+                    if (_user.Equals(m_tempUser) && PassEncpt.Equals(m_tempPass)
+                        || _user.Equals(m_tempEmail) && PassEncpt.Equals(m_tempPass))
                     {
-                        Response.Write(" Dang Nhap Thanh Con User " + m_tempUser + " Pass " + m_tempPass);
+                        Session["user"] = _user;
+                        //Response.Write(" Success ");
+
                     }
                     else
                     {
-                        Response.Write(" Dang Nhap That Bai " + m_tempUser + " Pass " + m_tempPass);
+                        //Response.Write(" Wrong Pass User =" +m_tempUser+ "/n pass= "+ m_tempPass +" Email =" +m_tempEmail);
+                        _WrongUser = null;
                     }
 
                 }
                 else
                 {
-                    Response.Write("Fail");
+                    _WrongUser = null;
                 }
             }
             catch(Exception ex)
             {
-                Response.Write(" Dang Nhap That Bai " +ex.ToString());
+                //Response.Write(" Exception " + ex.ToString());
+                _WrongUser = null;
             }
 
         }

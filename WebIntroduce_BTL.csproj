@@ -151,7 +151,6 @@
     <Content Include="Scripts\bootstrap-4.5.3-dist\js\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap-4.5.3-dist\js\bootstrap.min.js.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Pages\LoginPages.aspx" />
     <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap-grid.css" />
     <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap-grid.min.css" />
     <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap-reboot.css" />
@@ -231,13 +230,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\LoginPages.aspx.cs">
-      <DependentUpon>LoginPages.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\LoginPages.aspx.designer.cs">
-      <DependentUpon>LoginPages.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SignInPage.aspx.cs">
       <DependentUpon>SignInPage.aspx</DependentUpon>
