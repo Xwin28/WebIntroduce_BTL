@@ -42,7 +42,32 @@ namespace WebIntroduce_BTL.Controller
 
         }
 
+        [HttpGet]
+        public string GetLogin()
+        {
+            // return "value";
+            try
+            {
+                MySqlConnection conn = Connected.GetDBConnection();
+                String sql = "SELECT * FROM webintroduce.account";
+                MySqlDataAdapter Adapter = new MySqlDataAdapter(sql, conn);
+                DataTable m_table = new DataTable();
+                Adapter.Fill(m_table);
+                if (m_table.Rows.Count > 0)
+                {
+                    return JsonConvert.SerializeObject(m_table);
+                }
+                else
+                {
+                    return "Error";
+                }
+            }
+            catch (Exception ex)
+            {
+                return "Error" + ex.ToString();
+            }
 
+        }
 
 
 
