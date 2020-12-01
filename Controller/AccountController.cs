@@ -69,9 +69,63 @@ namespace WebIntroduce_BTL.Controller
 
         }
 
+        
+        [HttpGet]
+        public string GetLogin(string begin, string number)
+        {
+            // return "value";
+            try
+            {
+                //string begin = "0"; string number = "3";
+                MySqlConnection conn = Connected.GetDBConnection();
+                String sql = "SELECT * FROM webintroduce.account Limit "+begin +"," +number;
+
+                MySqlDataAdapter Adapter = new MySqlDataAdapter(sql, conn);
+                DataTable m_table = new DataTable();
+                Adapter.Fill(m_table);
+                if (m_table.Rows.Count > 0)
+                {
+                    return JsonConvert.SerializeObject(m_table);
+                }
+                else
+                {
+                    return "Error";
+                }
+            }
+            catch (Exception ex)
+            {
+                return "Error" + ex.ToString();
+            }
+
+        }
 
 
+        [HttpGet]
+        public string GetCountLogin()
+        {
+            try
+            {
+                //string begin = "0"; string number = "3";
+                MySqlConnection conn = Connected.GetDBConnection();
+                String sql = "SELECT COUNT(*) FROM webintroduce.account"; 
 
+                MySqlDataAdapter Adapter = new MySqlDataAdapter(sql, conn);
+                DataTable m_table = new DataTable();
+                Adapter.Fill(m_table);
+                if (m_table.Rows.Count > 0)
+                {
+                    return JsonConvert.SerializeObject(m_table);
+                }
+                else
+                {
+                    return "Error";
+                }
+            }
+            catch (Exception ex)
+            {
+                return "Error" + ex.ToString();
+            }
+        }
 
         /*[HttpGet]
         public IEnumerable<Account> GetLogin(*//*String _id*//*)

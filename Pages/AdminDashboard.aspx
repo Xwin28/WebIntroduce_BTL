@@ -123,7 +123,7 @@
                             <div class="media text-muted border border-secondary" <%=m_SProduct_2 %>>
                                 <img style="width: 150px; height: 100px;" src="../Resources/instagram_3.jpg" />
                                 <div class="media-body" style="margin-top: 15px; margin-right: 10px; margin-left: 5px;">
-                                    <asp:Label ID="Label11" runat="server" Text="Product Name" Font-Bold="True" Font-Size="18px" ForeColor="White" Style="padding-left: 7px"></asp:Label>
+                                    <asp:Label ID="lbl_ProductName_2" runat="server" Text="Product Name" Font-Bold="True" Font-Size="18px" ForeColor="White" Style="padding-left: 7px"></asp:Label>
                                     <asp:Label Style="float: right; padding-right: 5px; padding-left: 5px;" ID="Label12" runat="server" Text="Draft" BackColor="#c3745f" Font-Bold="True" ForeColor="White" />
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item active" style="background-color: #1b1b1b; padding-left: 7px; margin-top: 20px;">
@@ -139,7 +139,7 @@
                             <div class="media text-muted border border-secondary" <%=m_SProduct_3 %>>
                                 <img style="width: 150px; height: 100px;" src="../Resources/instagram_3.jpg" />
                                 <div class="media-body" style="margin-top: 15px; margin-right: 10px; margin-left: 5px;">
-                                    <asp:Label ID="Label13" runat="server" Text="Product Name" Font-Bold="True" Font-Size="18px" ForeColor="White" Style="padding-left: 7px"></asp:Label>
+                                    <asp:Label ID="lbl_ProductName_3" runat="server" Text="Product Name" Font-Bold="True" Font-Size="18px" ForeColor="White" Style="padding-left: 7px"></asp:Label>
                                     <asp:Label Style="float: right; padding-right: 5px; padding-left: 5px;" ID="Label14" runat="server" Text="Draft" BackColor="#c3745f" Font-Bold="True" ForeColor="White" />
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item active" style="background-color: #1b1b1b; padding-left: 7px; margin-top: 20px;">
@@ -155,7 +155,7 @@
                             <div class="media text-muted border border-secondary" <%=m_SProduct_4 %>>
                                 <img style="width: 150px; height: 100px;" src="../Resources/instagram_3.jpg" />
                                 <div class="media-body" style="margin-top: 15px; margin-right: 10px; margin-left: 5px;">
-                                    <asp:Label ID="Label15" runat="server" Text="Product Name" Font-Bold="True" Font-Size="18px" ForeColor="White" Style="padding-left: 7px"></asp:Label>
+                                    <asp:Label ID="lbl_ProductName_4" runat="server" Text="Product Name" Font-Bold="True" Font-Size="18px" ForeColor="White" Style="padding-left: 7px"></asp:Label>
                                     <asp:Label Style="float: right; padding-right: 5px; padding-left: 5px;" ID="Label16" runat="server" Text="Draft" BackColor="#c3745f" Font-Bold="True" ForeColor="White" />
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item active" style="background-color: #1b1b1b; padding-left: 7px; margin-top: 20px;">
@@ -171,7 +171,7 @@
                             <div class="media text-muted border border-secondary" <%=m_SProduct_5 %>>
                                 <img style="width: 150px; height: 100px;" src="../Resources/instagram_3.jpg" />
                                 <div class="media-body" style="margin-top: 15px; margin-right: 10px; margin-left: 5px;">
-                                    <asp:Label ID="Label17" runat="server" Text="Product Name" Font-Bold="True" Font-Size="18px" ForeColor="White" Style="padding-left: 7px"></asp:Label>
+                                    <asp:Label ID="lbl_ProductName_5" runat="server" Text="Product Name" Font-Bold="True" Font-Size="18px" ForeColor="White" Style="padding-left: 7px"></asp:Label>
                                     <asp:Label Style="float: right; padding-right: 5px; padding-left: 5px;" ID="Label18" runat="server" Text="Draft" BackColor="#c3745f" Font-Bold="True" ForeColor="White" />
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item active" style="background-color: #1b1b1b; padding-left: 7px; margin-top: 20px;">
@@ -184,31 +184,34 @@
                                 </div>
                             </div>
 
-                            <nav aria-label="Search results pages">
-                                <ul class="pagination pagination-sms justify-content-end border-0">
-                                    <li class="page-item disabled">
-                                        <asp:Button class="page-link" Style="background-color: #111111" ID="Button2" runat="server" Text="Previous" />
+                            <nav aria-label="Search results pages" style="margin-top: 10px;">
+                                <ul class="pagination pagination-sms justify-content-end">
+                                    <li class="page-item" <%=mSpagePre %>>
+                                        <asp:Button CausesValidation="False" class="page-link border-0"  Style="background-color: #111111" ID="btn_page_previous" runat="server" Text="Previous" ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_previous_Click" />
                                     </li>
-                                    <li class="page-item active">
-                                        <asp:Button class="page-link" Style="background-color: #111111" ID="Button4" runat="server" Text="1" />
+                                    <li class="page-item" <%=mSpage_1 %>  >
+                                        <asp:Button class="page-link border-0" Style="background-color: #111111" ID="btn_page_1" runat="server" Text="1" ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_1_Click"/>
                                     </li>
-                                    <li class="page-item">
-                                        <asp:Button class="page-link" Style="background-color: #111111" ID="Button6" runat="server" Text="..." />
+                                    <li class="page-item" <%=mSpage_2 %>  >
+                                        <asp:Button class="page-link border-0" Style="background-color: #111111" ID="btn_page_2" runat="server" Text="..." ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_2_Click"/>
                                     </li>
-                                    <li class="page-item">
-                                        <asp:Button class="page-link" Style="background-color: #111111" ID="Button8" runat="server" Text="3" />
+                                    <li class="page-item" <%=mSpage_3 %> >
+                                        <asp:Button class="page-link border-0" Style="background-color: #111111" ID="btn_page_3" runat="server" Text="3" ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_3_Click"/>
                                     </li>
-                                    <li class="page-item active">
-                                        <asp:Button class="page-link" Style="background-color: #111111" ID="Button12" runat="server" Text="4" />
+                                    <li class="page-item" <%=mSpage_4 %>  >
+                                        <asp:Button class="page-link border-0" Style="background-color: #111111" ID="btn_page_4" runat="server" Text="4" ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_4_Click"/>
                                     </li>
-                                    <li class="page-item">
-                                        <asp:Button class="page-link" Style="background-color: #111111" ID="Button13" runat="server" Text="..." />
+                                    <li class="page-item" <%=mSpage_5 %> >
+                                        <asp:Button class="page-link border-0" Style="background-color: #111111" ID="btn_page_5" runat="server" Text="..." ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_5_Click"/>
                                     </li>
-                                    <li class="page-item">
-                                        <asp:Button class="page-link" Style="background-color: #111111" ID="Button14" runat="server" Text="10" />
+                                    <li class="page-item" <%=mSpage_6 %> >
+                                        <asp:Button class="page-link border-0" Style="background-color: #111111" ID="btn_page_6" runat="server" Text="10" ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_6_Click"/>
                                     </li>
-                                    <li class="page-item">
-                                        <asp:Button class="page-link" Style="background-color: #111111" ID="Button10" runat="server" Text="Next" />
+                                    <li class="page-item" <%=mSpage_7 %> >
+                                        <asp:Button class="page-link border-0" Style="background-color: #111111" ID="btn_page_7" runat="server" Text="10" ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_7_Click"/>
+                                    </li>
+                                    <li class="page-item" <%=mSpageNext %> >
+                                        <asp:Button class="page-link border-0" Style="background-color: #111111" ID="btn_page_next" runat="server" Text="Next" ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_next_Click"/>
                                     </li>
                                 </ul>
                             </nav>

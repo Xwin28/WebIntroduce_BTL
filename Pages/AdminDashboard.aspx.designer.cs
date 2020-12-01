@@ -150,13 +150,13 @@ namespace WebIntroduce_BTL.Pages
         protected global::System.Web.UI.WebControls.Button btn_Deleta_1;
 
         /// <summary>
-        /// Label11 control.
+        /// lbl_ProductName_2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label11;
+        protected global::System.Web.UI.WebControls.Label lbl_ProductName_2;
 
         /// <summary>
         /// Label12 control.
@@ -204,13 +204,13 @@ namespace WebIntroduce_BTL.Pages
         protected global::System.Web.UI.WebControls.Button btn_Deleta_2;
 
         /// <summary>
-        /// Label13 control.
+        /// lbl_ProductName_3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label13;
+        protected global::System.Web.UI.WebControls.Label lbl_ProductName_3;
 
         /// <summary>
         /// Label14 control.
@@ -258,13 +258,13 @@ namespace WebIntroduce_BTL.Pages
         protected global::System.Web.UI.WebControls.Button btn_Deleta_3;
 
         /// <summary>
-        /// Label15 control.
+        /// lbl_ProductName_4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label15;
+        protected global::System.Web.UI.WebControls.Label lbl_ProductName_4;
 
         /// <summary>
         /// Label16 control.
@@ -312,13 +312,13 @@ namespace WebIntroduce_BTL.Pages
         protected global::System.Web.UI.WebControls.Button btn_Deleta_4;
 
         /// <summary>
-        /// Label17 control.
+        /// lbl_ProductName_5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label17;
+        protected global::System.Web.UI.WebControls.Label lbl_ProductName_5;
 
         /// <summary>
         /// Label18 control.
@@ -366,76 +366,85 @@ namespace WebIntroduce_BTL.Pages
         protected global::System.Web.UI.WebControls.Button btn_Deleta_5;
 
         /// <summary>
-        /// Button2 control.
+        /// btn_page_previous control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button btn_page_previous;
 
         /// <summary>
-        /// Button4 control.
+        /// btn_page_1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button4;
+        protected global::System.Web.UI.WebControls.Button btn_page_1;
 
         /// <summary>
-        /// Button6 control.
+        /// btn_page_2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button6;
+        protected global::System.Web.UI.WebControls.Button btn_page_2;
 
         /// <summary>
-        /// Button8 control.
+        /// btn_page_3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button8;
+        protected global::System.Web.UI.WebControls.Button btn_page_3;
 
         /// <summary>
-        /// Button12 control.
+        /// btn_page_4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button12;
+        protected global::System.Web.UI.WebControls.Button btn_page_4;
 
         /// <summary>
-        /// Button13 control.
+        /// btn_page_5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button13;
+        protected global::System.Web.UI.WebControls.Button btn_page_5;
 
         /// <summary>
-        /// Button14 control.
+        /// btn_page_6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button14;
+        protected global::System.Web.UI.WebControls.Button btn_page_6;
 
         /// <summary>
-        /// Button10 control.
+        /// btn_page_7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button10;
+        protected global::System.Web.UI.WebControls.Button btn_page_7;
+
+        /// <summary>
+        /// btn_page_next control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_page_next;
 
         /// <summary>
         /// Label10 control.
