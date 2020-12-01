@@ -21,6 +21,14 @@ namespace BTL_ASP
 
             );
 
+            config.Routes.MapHttpRoute(
+
+                name: "MultiGet",
+
+                routeTemplate: "api/{controller}/{action}/{A}/{B}"
+
+            );
+
 
 
         }
