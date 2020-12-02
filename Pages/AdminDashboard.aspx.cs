@@ -19,13 +19,42 @@ namespace WebIntroduce_BTL.Pages
     {
         public String m_SProduct_1, m_SProduct_2, m_SProduct_3, m_SProduct_4, m_SProduct_5;
         public String mSpagePre, mSpage_1, mSpage_2, mSpage_3, mSpage_4, mSpage_5, mSpage_6, mSpage_7, mSpageNext;
+        public String mDis_1, mDis_2, mDis_3, mDis_4, mDis_5, mDis_6, mDis_7, mDis_pre, mDis_next;
         List<Account> convertedList;
+        String sort = "0";
         protected void btn_page_7_Click(object sender, EventArgs e)
         {
             m_Current_Page = m_NumberProduct;
             Session["m_Current_Page"] = m_Current_Page;
-            btn_page_next.Enabled = false;
+            mDis_next = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+            lbl_page_next.ForeColor = Color.Gray;
+            lbl_page_pre.ForeColor = Color.White;
             PostBack();
+        }
+
+        protected void DropSort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DropSort.SelectedIndex == 0)
+            {
+                sort = "0";
+                Session["sort"] = sort;
+                m_Current_Page = 1;
+                Session["m_Current_Page"] = m_Current_Page;
+                SwitchPageColor(1);
+                PostBack();
+            }
+            else if (DropSort.SelectedIndex == 1)
+            {
+                sort = "1";
+                Session["sort"] = sort;
+                m_Current_Page = 1;
+                Session["m_Current_Page"] = m_Current_Page;
+                lbl_page_next.ForeColor = Color.White;
+                lbl_page_pre.ForeColor = Color.Gray;
+                SwitchPageColor(1);
+                PostBack();
+            }
+
         }
 
         protected void btn_page_2_Click(object sender, EventArgs e)
@@ -36,7 +65,9 @@ namespace WebIntroduce_BTL.Pages
                 m_Current_Page = 2;
                 Session["m_Current_Page"] = m_Current_Page;
                 SwitchPageColor(2);
-                btn_page_next.Enabled = false;
+                mDis_next = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+                lbl_page_next.ForeColor = Color.Gray;
+                lbl_page_pre.ForeColor = Color.White;
                 PostBack();
             }
             else if (m_NumberProduct > 10 && m_NumberProduct <= 15)
@@ -102,7 +133,9 @@ namespace WebIntroduce_BTL.Pages
                 m_Current_Page = 3;
                 Session["m_Current_Page"] = m_Current_Page;
                 SwitchPageColor(3);
-                btn_page_next.Enabled = false;
+                mDis_next = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+                lbl_page_next.ForeColor = Color.Gray;
+                lbl_page_pre.ForeColor = Color.White;
                 PostBack();
             }
             else if (m_NumberProduct > 15 && m_NumberProduct <= 20)
@@ -172,7 +205,9 @@ namespace WebIntroduce_BTL.Pages
                 m_Current_Page = 4;
                 Session["m_Current_Page"] = m_Current_Page;
                 SwitchPageColor(4);
-                btn_page_next.Enabled = false;
+                mDis_next = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+                lbl_page_next.ForeColor = Color.Gray;
+                lbl_page_pre.ForeColor = Color.White;
                 PostBack();
             }
             else if (m_NumberProduct > 20 && m_NumberProduct <= 25)
@@ -241,7 +276,9 @@ namespace WebIntroduce_BTL.Pages
                 m_Current_Page = 5;
                 Session["m_Current_Page"] = m_Current_Page;
                 SwitchPageColor(5);
-                btn_page_next.Enabled = false;
+                mDis_next = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+                lbl_page_next.ForeColor = Color.Gray;
+                lbl_page_pre.ForeColor = Color.White;
                 PostBack();
             }
             else if (m_NumberProduct > 25 && m_NumberProduct <= 30)
@@ -310,7 +347,9 @@ namespace WebIntroduce_BTL.Pages
                 m_Current_Page = 6;
                 Session["m_Current_Page"] = m_Current_Page;
                 SwitchPageColor(6);
-                btn_page_next.Enabled = false;
+                mDis_next = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+                lbl_page_next.ForeColor = Color.Gray;
+                lbl_page_pre.ForeColor = Color.White;
                 PostBack();
             }
             else if (m_NumberProduct > 30 && m_NumberProduct <= 35)
@@ -352,18 +391,40 @@ namespace WebIntroduce_BTL.Pages
                 Session["m_Current_Page"] = m_Current_Page;
             }
 
-            if (m_Current_Page == m_NumberProduct)
+
+            // if Over pages -> cant click
+            if(m_NumberProduct%5 != 0)
             {
-                btn_page_next.Enabled = false;
+                if (m_Current_Page >= m_NumberProduct/5+1)
+                {
+                    mDis_next = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"";
+                    //btn_page_next.Enabled = false;
+                    lbl_page_next.ForeColor = Color.Gray;
+                    lbl_page_pre.ForeColor = Color.White;
+                }
             }
-            PostBack();
+            else if (m_NumberProduct % 5 == 0)
+            {
+                if (m_Current_Page >= m_NumberProduct / 5 )
+                {
+                    mDis_next = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"";
+                    
+                    lbl_page_next.ForeColor = Color.Gray;
+                    lbl_page_pre.ForeColor = Color.White;
+                }
+            }
+
+                PostBack();
         }
 
         protected void btn_page_1_Click(object sender, EventArgs e)
         {
             m_Current_Page = 1;
             Session["m_Current_Page"] = m_Current_Page;
-            btn_page_previous.Enabled = false;
+            SwitchPageColor(1);
+            mDis_pre = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+            lbl_page_next.ForeColor = Color.White;
+            lbl_page_pre.ForeColor = Color.Gray;
             PostBack();
         }
 
@@ -378,7 +439,9 @@ namespace WebIntroduce_BTL.Pages
 
             if (m_Current_Page == 1)
             {
-                btn_page_previous.Enabled = false;
+                mDis_pre = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"";
+                lbl_page_next.ForeColor = Color.White;
+                lbl_page_pre.ForeColor = Color.Gray;
             }
             PostBack();
         }
@@ -390,13 +453,28 @@ namespace WebIntroduce_BTL.Pages
             //Post Back
             if (!IsPostBack)
             {
+                lbl_page_1.ForeColor = Color.FromArgb(59, 110, 140);
+                lbl_page_pre.ForeColor = Color.Gray;
                 //Run On First Time
+                sort = "0";
+                Session["sort"] = sort;
                 m_Current_Page = 1;
                 Session["m_Current_Page"] = m_Current_Page;
                 //Hident all product
                 btn_page_1.ForeColor = Color.FromArgb(59, 110, 140);
                 btn_page_1.Enabled = false;
                 btn_page_previous.Enabled = false;
+
+                mDis_1 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+                mDis_2 = "style=" + "\"" + "background-color: #111111" + "\"";
+                mDis_3 = "style=" + "\"" + "background-color: #111111" + "\"";
+                mDis_4= "style=" + "\"" + "background-color: #111111" + "\"";
+                mDis_5= "style=" + "\"" + "background-color: #111111" + "\"";
+                mDis_6= "style=" + "\"" + "background-color: #111111" + "\"";
+                mDis_7= "style=" + "\"" + "background-color: #111111" + "\"";
+                mDis_pre = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+                mDis_next = "style=" + "\"" + "background-color: #111111" + "\"";
+
                 m_SProduct_1 = "style=" + "\"" + "display:none; margin-top: 20px;" + "\"";
                 m_SProduct_2 = "style=" + "\"" + "display:none; margin-top: 20px;" + "\"";
                 m_SProduct_3 = "style=" + "\"" + "display:none; margin-top: 20px;" + "\"";
@@ -419,7 +497,7 @@ namespace WebIntroduce_BTL.Pages
                     {
                         BaseAddress = new Uri("https://localhost:44304/api/")
                     };
-                    var comsumapi = hc.GetAsync("Account/GetLogin?begin=0&number=5");
+                    var comsumapi = hc.GetAsync("Account/GetLogin?begin=0&sort=0");
                     comsumapi.Wait();// Wait for Excute
                     var readDate = comsumapi.Result;
                     if (readDate.IsSuccessStatusCode)
@@ -517,104 +595,104 @@ namespace WebIntroduce_BTL.Pages
                         mSpagePre = null;
                         mSpageNext = null;
                         mSpage_1 = null;
-                        btn_page_1.Text = "1";
+                        lbl_page_1.Text = "1";
                         mSpage_2 = null;
-                        btn_page_2.Text = "2";
+                        lbl_page_2.Text = "2";
                     }
                     else if (m_NumberProduct > 10 && m_NumberProduct <= 15)
                     {
                         mSpagePre = null;
                         mSpageNext = null;
                         mSpage_1 = null;
-                        btn_page_1.Text = "1";
+                        lbl_page_1.Text = "1";
                         mSpage_2 = null;
-                        btn_page_2.Text = "2";
+                        lbl_page_2.Text = "2";
                         mSpage_3 = null;
-                        btn_page_3.Text = "3";
+                        lbl_page_3.Text = "3";
                     }
                     else if (m_NumberProduct > 15 && m_NumberProduct <= 20)
                     {
                         mSpagePre = null;
                         mSpageNext = null;
                         mSpage_1 = null;
-                        btn_page_1.Text = "1";
+                        lbl_page_1.Text = "1";
                         mSpage_2 = null;
-                        btn_page_2.Text = "2";
+                        lbl_page_2.Text = "2";
                         mSpage_3 = null;
-                        btn_page_3.Text = "3";
+                        lbl_page_3.Text = "3";
                         mSpage_4 = null;
-                        btn_page_4.Text = "4";
+                        lbl_page_4.Text = "4";
                     }
                     else if (m_NumberProduct > 20 && m_NumberProduct <= 25)
                     {
                         mSpagePre = null;
                         mSpageNext = null;
                         mSpage_1 = null;
-                        btn_page_1.Text = "1";
+                        lbl_page_1.Text = "1";
                         mSpage_2 = null;
-                        btn_page_2.Text = "2";
+                        lbl_page_2.Text = "2";
                         mSpage_3 = null;
-                        btn_page_3.Text = "3";
+                        lbl_page_3.Text = "3";
                         mSpage_4 = null;
-                        btn_page_4.Text = "4";
+                        lbl_page_4.Text = "4";
                         mSpage_5 = null;
-                        btn_page_5.Text = "5";
+                        lbl_page_5.Text = "5";
                     }
                     else if (m_NumberProduct > 25 && m_NumberProduct <= 30)
                     {
                         mSpagePre = null;
                         mSpageNext = null;
                         mSpage_1 = null;
-                        btn_page_1.Text = "1";
+                        lbl_page_1.Text = "1";
                         mSpage_2 = null;
-                        btn_page_2.Text = "2";
+                        lbl_page_2.Text = "2";
                         mSpage_3 = null;
-                        btn_page_3.Text = "3";
+                        lbl_page_3.Text = "3";
                         mSpage_4 = null;
-                        btn_page_4.Text = "4";
+                        lbl_page_4.Text = "4";
                         mSpage_5 = null;
-                        btn_page_5.Text = "5";
+                        lbl_page_5.Text = "5";
                         mSpage_6 = null;
-                        btn_page_6.Text = "6";
+                        lbl_page_6.Text = "6";
                     }
                     else if (m_NumberProduct > 30 && m_NumberProduct <= 35)
                     {
                         mSpagePre = null;
                         mSpageNext = null;
                         mSpage_1 = null;
-                        btn_page_1.Text = "1";
+                        lbl_page_1.Text = "1";
                         mSpage_2 = null;
-                        btn_page_2.Text = "2";
+                        lbl_page_2.Text = "2";
                         mSpage_3 = null;
-                        btn_page_3.Text = "3";
+                        lbl_page_3.Text = "3";
                         mSpage_4 = null;
-                        btn_page_4.Text = "4";
+                        lbl_page_4.Text = "4";
                         mSpage_5 = null;
-                        btn_page_5.Text = "5";
+                        lbl_page_5.Text = "5";
                         mSpage_6 = null;
-                        btn_page_6.Text = "6";
+                        lbl_page_6.Text = "6";
                         mSpage_7 = null;
-                        btn_page_7.Text = "7";
+                        lbl_page_7.Text = "7";
                     }
                     else if (m_NumberProduct > 35)
                     {
                         mSpagePre = null;
                         mSpageNext = null;
                         mSpage_1 = null;
-                        btn_page_1.Text = "1";
+                        lbl_page_1.Text = "1";
                         mSpage_2 = null;
-                        btn_page_2.Text = "2";
+                        lbl_page_2.Text = "2";
                         mSpage_3 = null;
-                        btn_page_3.Text = "3";
+                        lbl_page_3.Text = "3";
                         mSpage_4 = null;
-                        btn_page_4.Text = "4";
+                        lbl_page_4.Text = "4";
                         mSpage_5 = null;
-                        btn_page_5.Text = "5";
+                        lbl_page_5.Text = "5";
                         mSpage_6 = null;
-                        btn_page_6.Text = "...";
-                        btn_page_6.Enabled = false;
+                        lbl_page_6.Text = "...";
+                        mDis_6 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
                         mSpage_7 = null;
-                        btn_page_7.Text = m_NumberProduct.ToString();
+                        lbl_page_7.Text = m_NumberProduct.ToString();
                     }
 
 
@@ -629,8 +707,10 @@ namespace WebIntroduce_BTL.Pages
             }
             else
             {
+                //Response.Write("<script>window.scrollTo({top: 0,left: 0,behavior: 'smooth'});alert('Thank you for visiting W3Schools!'); ");
                 m_Current_Page = int.Parse(Session["m_Current_Page"].ToString());
                 m_NumberProduct = int.Parse(Session["m_NumberProduct"].ToString());
+                sort = Session["sort"].ToString();
             }
 
         }
@@ -638,7 +718,16 @@ namespace WebIntroduce_BTL.Pages
         // Because Post back in Page_Load Run Before Function of Button
         public void PostBack()
         {
-            Response.Write("POST BACK");
+/*            mDis_1 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+            mDis_2 = "style=" + "\"" + "background-color: #111111" + "\"";
+            mDis_3 = "style=" + "\"" + "background-color: #111111" + "\"";
+            mDis_4= "style=" + "\"" + "background-color: #111111" + "\"";
+            mDis_5= "style=" + "\"" + "background-color: #111111" + "\"";
+            mDis_6= "style=" + "\"" + "background-color: #111111" + "\"";
+            mDis_7= "style=" + "\"" + "background-color: #111111" + "\"";
+            mDis_pre = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+            mDis_next = "style=" + "\"" + "background-color: #111111" + "\"";*/
+
             m_SProduct_1 = "style=" + "\"" + "display:none; margin-top: 20px;" + "\"";
             m_SProduct_2 = "style=" + "\"" + "display:none; margin-top: 20px;" + "\"";
             m_SProduct_3 = "style=" + "\"" + "display:none; margin-top: 20px;" + "\"";
@@ -659,7 +748,7 @@ namespace WebIntroduce_BTL.Pages
             {
                 int m_TempPage = m_NumberProduct / 5;
                 //set begin and number to select in Database
-                String begin="", number="5";
+                String begin = "";
                 if (m_Current_Page <= m_TempPage)
                 {
                     begin = ((m_Current_Page - 1) * 5).ToString();
@@ -675,7 +764,7 @@ namespace WebIntroduce_BTL.Pages
                 {
                     BaseAddress = new Uri("https://localhost:44304/api/")
                 };
-                var comsumapi = hc.GetAsync("Account/GetLogin?begin="+begin+"&number="+number+"");
+                var comsumapi = hc.GetAsync("Account/GetLogin?begin=" + begin + "&sort=" + sort + "");
                 comsumapi.Wait();// Wait for Excute
                 var readDate = comsumapi.Result;
                 if (readDate.IsSuccessStatusCode)
@@ -696,14 +785,14 @@ namespace WebIntroduce_BTL.Pages
 
                 }
                 //Phan Trang
-                
+
                 float m_NumberProductinPage = 0;
                 if (m_Current_Page <= m_TempPage)
                 {
                     m_NumberProductinPage = 5;
                     Label[] m_label = { lbl_ProductName_1, lbl_ProductName_2, lbl_ProductName_3, lbl_ProductName_4, lbl_ProductName_5 };
                     int temp = 0;
-                    foreach(Account m_acc in convertedList)
+                    foreach (Account m_acc in convertedList)
                     {
                         m_label[temp].Text = m_acc.User;
                         temp++;
@@ -756,145 +845,145 @@ namespace WebIntroduce_BTL.Pages
                     mSpagePre = null;
                     mSpageNext = null;
                     mSpage_1 = null;
-                    btn_page_1.Text = "1";
+                    lbl_page_1.Text = "1";
                     mSpage_2 = null;
-                    btn_page_2.Text = "2";
+                    lbl_page_2.Text = "2";
                 }
                 else if (m_NumberProduct > 10 && m_NumberProduct <= 15)
                 {
                     mSpagePre = null;
                     mSpageNext = null;
                     mSpage_1 = null;
-                    btn_page_1.Text = "1";
+                    lbl_page_1.Text = "1";
                     mSpage_2 = null;
-                    btn_page_2.Text = "2";
+                    lbl_page_2.Text = "2";
                     mSpage_3 = null;
-                    btn_page_3.Text = "3";
+                    lbl_page_3.Text = "3";
                 }
                 else if (m_NumberProduct > 15 && m_NumberProduct <= 20)
                 {
                     mSpagePre = null;
                     mSpageNext = null;
                     mSpage_1 = null;
-                    btn_page_1.Text = "1";
+                    lbl_page_1.Text = "1";
                     mSpage_2 = null;
-                    btn_page_2.Text = "2";
+                    lbl_page_2.Text = "2";
                     mSpage_3 = null;
-                    btn_page_3.Text = "3";
+                    lbl_page_3.Text = "3";
                     mSpage_4 = null;
-                    btn_page_4.Text = "4";
+                    lbl_page_4.Text = "4";
                 }
                 else if (m_NumberProduct > 20 && m_NumberProduct <= 25)
                 {
                     mSpagePre = null;
                     mSpageNext = null;
                     mSpage_1 = null;
-                    btn_page_1.Text = "1";
+                    lbl_page_1.Text = "1";
                     mSpage_2 = null;
-                    btn_page_2.Text = "2";
+                    lbl_page_2.Text = "2";
                     mSpage_3 = null;
-                    btn_page_3.Text = "3";
+                    lbl_page_3.Text = "3";
                     mSpage_4 = null;
-                    btn_page_4.Text = "4";
+                    lbl_page_4.Text = "4";
                     mSpage_5 = null;
-                    btn_page_5.Text = "5";
+                    lbl_page_5.Text = "5";
                 }
                 else if (m_NumberProduct > 25 && m_NumberProduct <= 30)
                 {
                     mSpagePre = null;
                     mSpageNext = null;
                     mSpage_1 = null;
-                    btn_page_1.Text = "1";
+                    lbl_page_1.Text = "1";
                     mSpage_2 = null;
-                    btn_page_2.Text = "2";
+                    lbl_page_2.Text = "2";
                     mSpage_3 = null;
-                    btn_page_3.Text = "3";
+                    lbl_page_3.Text = "3";
                     mSpage_4 = null;
-                    btn_page_4.Text = "4";
+                    lbl_page_4.Text = "4";
                     mSpage_5 = null;
-                    btn_page_5.Text = "5";
+                    lbl_page_5.Text = "5";
                     mSpage_6 = null;
-                    btn_page_6.Text = "6";
+                    lbl_page_6.Text = "6";
                 }
                 else if (m_NumberProduct > 30 && m_NumberProduct <= 35)
                 {
                     mSpagePre = null;
                     mSpageNext = null;
                     mSpage_1 = null;
-                    btn_page_1.Text = "1";
+                    lbl_page_1.Text = "1";
                     mSpage_2 = null;
-                    btn_page_2.Text = "2";
+                    lbl_page_2.Text = "2";
                     mSpage_3 = null;
-                    btn_page_3.Text = "3";
+                    lbl_page_3.Text = "3";
                     mSpage_4 = null;
-                    btn_page_4.Text = "4";
+                    lbl_page_4.Text = "4";
                     mSpage_5 = null;
-                    btn_page_5.Text = "5";
+                    lbl_page_5.Text = "5";
                     mSpage_6 = null;
-                    btn_page_6.Text = "6";
+                    lbl_page_6.Text = "6";
                     mSpage_7 = null;
-                    btn_page_7.Text = "7";
+                    lbl_page_7.Text = "7";
                 }
                 else if (m_NumberProduct > 35 && m_Current_Page < 5)
                 {
                     mSpagePre = null;
                     mSpageNext = null;
                     mSpage_1 = null;
-                    btn_page_1.Text = "1";
+                    lbl_page_1.Text = "1";
                     mSpage_2 = null;
-                    btn_page_2.Text = "2";
+                    lbl_page_2.Text = "2";
                     mSpage_3 = null;
-                    btn_page_3.Text = "3";
+                    lbl_page_3.Text = "3";
                     mSpage_4 = null;
-                    btn_page_4.Text = "4";
+                    lbl_page_4.Text = "4";
                     mSpage_5 = null;
-                    btn_page_5.Text = "5";
+                    lbl_page_5.Text = "5";
                     mSpage_6 = null;
-                    btn_page_6.Text = "...";
-                    btn_page_6.Enabled = false;
+                    lbl_page_6.Text = "...";
+                    mDis_6 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
                     mSpage_7 = null;
-                    btn_page_7.Text = m_NumberProduct.ToString();
+                    lbl_page_7.Text = m_NumberProduct.ToString();
                 }
                 else if (m_NumberProduct > 30 && m_Current_Page > (m_NumberProduct - 5))
                 {
                     mSpagePre = null;
                     mSpageNext = null;
                     mSpage_1 = null;
-                    btn_page_1.Text = "1";
+                    lbl_page_1.Text = "1";
                     mSpage_2 = null;
-                    btn_page_2.Text = "...";
-                    btn_page_2.Enabled = false;
+                    lbl_page_2.Text = "...";
+                    mDis_2 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
                     mSpage_3 = null;
-                    btn_page_3.Text = (m_NumberProduct - 4).ToString();
+                    lbl_page_3.Text = (m_NumberProduct - 4).ToString();
                     mSpage_4 = null;
-                    btn_page_4.Text = (m_NumberProduct - 3).ToString();
+                    lbl_page_4.Text = (m_NumberProduct - 3).ToString();
                     mSpage_5 = null;
-                    btn_page_5.Text = (m_NumberProduct - 2).ToString();
+                    lbl_page_5.Text = (m_NumberProduct - 2).ToString();
                     mSpage_6 = null;
-                    btn_page_6.Text = (m_NumberProduct - 1).ToString();
+                    lbl_page_6.Text = (m_NumberProduct - 1).ToString();
                     mSpage_7 = null;
-                    btn_page_7.Text = m_NumberProduct.ToString();
+                    lbl_page_7.Text = m_NumberProduct.ToString();
                 }
                 else if (m_NumberProduct > 30 && m_Current_Page < (m_NumberProduct - 5) && m_Current_Page > 5)
                 {
                     mSpagePre = null;
                     mSpageNext = null;
                     mSpage_1 = null;
-                    btn_page_1.Text = "1";
+                    lbl_page_1.Text = "1";
                     mSpage_2 = null;
-                    btn_page_2.Text = "...";
-                    btn_page_2.Enabled = false;
+                    lbl_page_2.Text = "...";
+                    mDis_2 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
                     mSpage_3 = null;
-                    btn_page_3.Text = (m_Current_Page - 1).ToString();
+                    lbl_page_3.Text = (m_Current_Page - 1).ToString();
                     mSpage_4 = null;
-                    btn_page_4.Text = (m_Current_Page).ToString();
+                    lbl_page_4.Text = (m_Current_Page).ToString();
                     mSpage_5 = null;
-                    btn_page_5.Text = (m_Current_Page + 1).ToString();
+                    lbl_page_5.Text = (m_Current_Page + 1).ToString();
                     mSpage_6 = null;
-                    btn_page_6.Text = "...";
-                    btn_page_6.Enabled = false;
+                    lbl_page_6.Text = "...";
+                    mDis_6 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
                     mSpage_7 = null;
-                    btn_page_7.Text = m_NumberProduct.ToString();
+                    lbl_page_7.Text = m_NumberProduct.ToString();
                 }
 
 
@@ -1147,130 +1236,131 @@ namespace WebIntroduce_BTL.Pages
             switch (i)
             {
                 case 1:
-                    btn_page_1.ForeColor = Color.FromArgb(59, 110, 140);
-                    btn_page_1.Enabled = false;
-                    btn_page_2.ForeColor = Color.White;
-                    btn_page_2.Enabled = true;
-                    btn_page_3.ForeColor = Color.White;
-                    btn_page_3.Enabled = true;
-                    btn_page_4.ForeColor = Color.White;
-                    btn_page_4.Enabled = true;
-                    btn_page_5.ForeColor = Color.White;
-                    btn_page_5.Enabled = true;
-                    btn_page_6.ForeColor = Color.White;
-                    btn_page_6.Enabled = true;
-                    btn_page_7.ForeColor = Color.White;
-                    btn_page_7.Enabled = true;
-                    btn_page_next.Enabled = true;
-                    btn_page_previous.Enabled = false;
+                    lbl_page_1.ForeColor = Color.FromArgb(59, 110, 140);
+                    mDis_1 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+                    lbl_page_2.ForeColor = Color.White;
+                    mDis_2 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_3.ForeColor = Color.White;
+                    mDis_3 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_4.ForeColor = Color.White;
+                    mDis_4= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_5.ForeColor = Color.White;
+                    mDis_5= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_6.ForeColor = Color.White;
+                    mDis_6= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_7.ForeColor = Color.White;
+                    mDis_7= "style=" + "\"" + "background-color: #111111" + "\"";
+                    mDis_next = "style=" + "\"" + "background-color: #111111" + "\"";
+                    mDis_pre = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
                     break;
                 case 2:
-                    btn_page_1.ForeColor = Color.White;
-                    btn_page_1.Enabled = true;
-                    btn_page_2.ForeColor = Color.FromArgb(59, 110, 140);
-                    btn_page_2.Enabled = false;
-                    btn_page_3.ForeColor = Color.White;
-                    btn_page_3.Enabled = true;
-                    btn_page_4.ForeColor = Color.White;
-                    btn_page_4.Enabled = true;
-                    btn_page_5.ForeColor = Color.White;
-                    btn_page_5.Enabled = true;
-                    btn_page_6.ForeColor = Color.White;
-                    btn_page_6.Enabled = true;
-                    btn_page_7.ForeColor = Color.White;
-                    btn_page_7.Enabled = true;
-                    btn_page_next.Enabled = true;
-                    btn_page_previous.Enabled = true;
+                    lbl_page_1.ForeColor = Color.White;
+                    mDis_1 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    //btn_page_1.Enabled = true;
+                    lbl_page_2.ForeColor = Color.FromArgb(59, 110, 140);
+                    mDis_2 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+                    lbl_page_3.ForeColor = Color.White;
+                    mDis_3 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_4.ForeColor = Color.White;
+                    mDis_4= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_5.ForeColor = Color.White;
+                    mDis_5= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_6.ForeColor = Color.White;
+                    mDis_6= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_7.ForeColor = Color.White;
+                    mDis_7= "style=" + "\"" + "background-color: #111111" + "\"";
+                    mDis_next = "style=" + "\"" + "background-color: #111111" + "\"";
+                    mDis_pre = "style=" + "\"" + "background-color: #111111" + "\"";;
                     break;
                 case 3:
-                    btn_page_1.ForeColor = Color.White;
-                    btn_page_1.Enabled = true;
-                    btn_page_2.ForeColor = Color.White;
-                    btn_page_2.Enabled = true;
-                    btn_page_3.ForeColor = Color.FromArgb(59, 110, 140);
-                    btn_page_3.Enabled = false;
-                    btn_page_4.ForeColor = Color.White;
-                    btn_page_4.Enabled = true;
-                    btn_page_5.ForeColor = Color.White;
-                    btn_page_5.Enabled = true;
-                    btn_page_6.ForeColor = Color.White;
-                    btn_page_6.Enabled = true;
-                    btn_page_7.ForeColor = Color.White;
-                    btn_page_7.Enabled = true;
-                    btn_page_next.Enabled = true;
-                    btn_page_previous.Enabled = true;
+                    lbl_page_1.ForeColor = Color.White;
+                    mDis_1 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_2.ForeColor = Color.White;
+                    mDis_2 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_3.ForeColor = Color.FromArgb(59, 110, 140);
+                    mDis_3 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+                    lbl_page_4.ForeColor = Color.White;
+                    mDis_4= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_5.ForeColor = Color.White;
+                    mDis_5= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_6.ForeColor = Color.White;
+                    mDis_6= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_7.ForeColor = Color.White;
+                    mDis_7= "style=" + "\"" + "background-color: #111111" + "\"";
+                    mDis_next = "style=" + "\"" + "background-color: #111111" + "\"";
+                    mDis_pre = "style=" + "\"" + "background-color: #111111" + "\"";;
                     break;
                 case 4:
-                    btn_page_1.ForeColor = Color.White;
-                    btn_page_1.Enabled = true;
-                    btn_page_2.ForeColor = Color.White;
-                    btn_page_2.Enabled = true;
-                    btn_page_3.ForeColor = Color.White;
-                    btn_page_3.Enabled = true;
-                    btn_page_4.ForeColor = Color.FromArgb(59, 110, 140);
-                    btn_page_4.Enabled = false;
-                    btn_page_5.ForeColor = Color.White;
-                    btn_page_5.Enabled = true;
-                    btn_page_6.ForeColor = Color.White;
-                    btn_page_6.Enabled = true;
-                    btn_page_7.ForeColor = Color.White;
-                    btn_page_7.Enabled = true;
-                    btn_page_next.Enabled = true;
-                    btn_page_previous.Enabled = true;
+                    lbl_page_1.ForeColor = Color.White;
+                    mDis_1 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_2.ForeColor = Color.White;
+                    mDis_2 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_3.ForeColor = Color.White;
+                    mDis_3 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_4.ForeColor = Color.FromArgb(59, 110, 140);
+                    mDis_4 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+                    lbl_page_5.ForeColor = Color.White;
+                    mDis_5= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_6.ForeColor = Color.White;
+                    mDis_6= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_7.ForeColor = Color.White;
+                    mDis_7= "style=" + "\"" + "background-color: #111111" + "\"";
+                    mDis_next = "style=" + "\"" + "background-color: #111111" + "\"";
+                    mDis_pre = "style=" + "\"" + "background-color: #111111" + "\"";;
                     break;
                 case 5:
-                    btn_page_1.ForeColor = Color.White;
-                    btn_page_1.Enabled = true;
-                    btn_page_2.ForeColor = Color.White;
-                    btn_page_2.Enabled = true;
-                    btn_page_3.ForeColor = Color.White;
-                    btn_page_3.Enabled = true;
-                    btn_page_4.ForeColor = Color.White;
-                    btn_page_4.Enabled = true;
-                    btn_page_5.ForeColor = Color.FromArgb(59, 110, 140);
-                    btn_page_5.Enabled = false;
-                    btn_page_6.ForeColor = Color.White;
-                    btn_page_6.Enabled = true;
-                    btn_page_7.ForeColor = Color.White;
-                    btn_page_7.Enabled = true;
-                    btn_page_next.Enabled = true;
-                    btn_page_previous.Enabled = true;
+                    lbl_page_1.ForeColor = Color.White;
+                    mDis_1 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_2.ForeColor = Color.White;
+                    mDis_2 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_3.ForeColor = Color.White;
+                    mDis_3 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_4.ForeColor = Color.White;
+                    mDis_4= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_5.ForeColor = Color.FromArgb(59, 110, 140);
+                    mDis_5 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+                    lbl_page_6.ForeColor = Color.White;
+                    mDis_6= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_7.ForeColor = Color.White;
+                    mDis_7= "style=" + "\"" + "background-color: #111111" + "\"";
+                    mDis_next = "style=" + "\"" + "background-color: #111111" + "\"";
+                    mDis_pre = "style=" + "\"" + "background-color: #111111" + "\"";;
                     break;
                 case 6:
-                    btn_page_1.ForeColor = Color.White;
-                    btn_page_1.Enabled = true;
-                    btn_page_2.ForeColor = Color.White;
-                    btn_page_2.Enabled = true;
-                    btn_page_3.ForeColor = Color.White;
-                    btn_page_3.Enabled = true;
-                    btn_page_4.ForeColor = Color.White;
-                    btn_page_4.Enabled = true;
-                    btn_page_5.ForeColor = Color.White;
-                    btn_page_5.Enabled = true;
-                    btn_page_6.ForeColor = Color.FromArgb(59, 110, 140);
-                    btn_page_6.Enabled = false;
-                    btn_page_7.ForeColor = Color.White;
-                    btn_page_7.Enabled = true;
-                    btn_page_next.Enabled = true;
-                    btn_page_previous.Enabled = true;
+                    lbl_page_1.ForeColor = Color.White;
+                    mDis_1 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_2.ForeColor = Color.White;
+                    mDis_2 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_3.ForeColor = Color.White;
+                    mDis_3 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_4.ForeColor = Color.White;
+                    mDis_4= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_5.ForeColor = Color.White;
+                    mDis_5= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_6.ForeColor = Color.FromArgb(59, 110, 140);
+                    mDis_6 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+                    lbl_page_7.ForeColor = Color.White;
+                    mDis_7= "style=" + "\"" + "background-color: #111111" + "\"";
+                    mDis_next = "style=" + "\"" + "background-color: #111111" + "\"";
+                    mDis_pre = "style=" + "\"" + "background-color: #111111" + "\"";;
                     break;
                 case 7:
-                    btn_page_1.ForeColor = Color.White;
-                    btn_page_1.Enabled = true;
-                    btn_page_2.ForeColor = Color.White;
-                    btn_page_2.Enabled = true;
-                    btn_page_3.ForeColor = Color.White;
-                    btn_page_3.Enabled = true;
-                    btn_page_4.ForeColor = Color.White;
-                    btn_page_4.Enabled = true;
-                    btn_page_5.ForeColor = Color.White;
-                    btn_page_5.Enabled = true;
-                    btn_page_6.ForeColor = Color.White;
-                    btn_page_6.Enabled = true;
-                    btn_page_7.ForeColor = Color.FromArgb(59, 110, 140);
-                    btn_page_7.Enabled = false;
-                    btn_page_next.Enabled = false;
-                    btn_page_previous.Enabled = true;
+                    lbl_page_1.ForeColor = Color.White;
+                    mDis_1 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_2.ForeColor = Color.White;
+                    mDis_2 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_3.ForeColor = Color.White;
+                    mDis_3 = "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_4.ForeColor = Color.White;
+                    mDis_4= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_5.ForeColor = Color.White;
+                    mDis_5= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_6.ForeColor = Color.White;
+                    mDis_6= "style=" + "\"" + "background-color: #111111" + "\"";
+                    lbl_page_7.ForeColor = Color.FromArgb(59, 110, 140);
+                    mDis_7 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+                    mDis_next = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"" ;
+                    mDis_pre = "style=" + "\"" + "background-color: #111111" + "\"";;
                     break;
 
             }

@@ -1,5 +1,4 @@
 
--- -----------------------------------------------------
 -- Schema WebIntroduce
 -- -----------------------------------------------------
 
@@ -16,6 +15,7 @@ CREATE TABLE IF NOT EXISTS `WebIntroduce`.`Account` (
   `User` NVARCHAR(256) NOT NULL,
   `Password` NVARCHAR(256) NOT NULL,
   `Email` NVARCHAR(256) NOT NULL,
+  `Date` DATETIME NOT NULL,
   PRIMARY KEY (`User`),
   UNIQUE INDEX `user_UNIQUE` (`User` ASC) VISIBLE)
 ENGINE = InnoDB;
@@ -29,15 +29,14 @@ CREATE TABLE IF NOT EXISTS `WebIntroduce`.`Properties` (
   `Text` NVARCHAR(256) NULL,
   `Content` NVARCHAR(5000) NULL,
   `Color` NVARCHAR(50) NULL,
-  `Font` NVARCHAR(50) NULL,
   `Size` NVARCHAR(50) NULL,
-  `Type_B_I_U` NVARCHAR(50) NULL,
   `Link` NVARCHAR(256) NULL,
   `Images` NVARCHAR(256) NULL,
   `Show` NVARCHAR(1) NULL COMMENT '0= false, 1 = true',
   `Order` NVARCHAR(50) NULL,
   `Left` NVARCHAR(50) NULL,
   `Number` NVARCHAR(50) NULL COMMENT 'Number of Panel',
+  `Date` DATETIME NULL,
   PRIMARY KEY (`IDProperty`),
   UNIQUE INDEX `IDProperty_UNIQUE` (`IDProperty` ASC) VISIBLE)
 ENGINE = InnoDB;

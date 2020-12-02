@@ -49,7 +49,7 @@ namespace WebIntroduce_BTL.Controller
             try
             {
                 MySqlConnection conn = Connected.GetDBConnection();
-                String sql = "SELECT * FROM webintroduce.account";
+                String sql = "SELECT * FROM webintroduce.account order by Date desc";
                 MySqlDataAdapter Adapter = new MySqlDataAdapter(sql, conn);
                 DataTable m_table = new DataTable();
                 Adapter.Fill(m_table);
@@ -71,15 +71,19 @@ namespace WebIntroduce_BTL.Controller
 
         
         [HttpGet]
-        public string GetLogin(string begin, string number)
+        public string GetLogin(string begin, string sort)
         {
             // return "value";
             try
             {
                 //string begin = "0"; string number = "3";
                 MySqlConnection conn = Connected.GetDBConnection();
-                String sql = "SELECT * FROM webintroduce.account Limit "+begin +"," +number;
+                String sql = "SELECT * FROM webintroduce.account order by Date desc Limit " + begin + ",5";
+                if(sort.Equals("1"))
+                {
+                    sql = "SELECT * FROM webintroduce.account order by Date asc Limit " + begin + ",5";
 
+                }
                 MySqlDataAdapter Adapter = new MySqlDataAdapter(sql, conn);
                 DataTable m_table = new DataTable();
                 Adapter.Fill(m_table);
