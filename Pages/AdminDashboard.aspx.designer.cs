@@ -96,6 +96,15 @@ namespace WebIntroduce_BTL.Pages
         protected global::System.Web.UI.WebControls.Label lbl_Title;
 
         /// <summary>
+        /// DropSort control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropSort;
+
+        /// <summary>
         /// lbl_ProductName_1 control.
         /// </summary>
         /// <remarks>
@@ -366,6 +375,15 @@ namespace WebIntroduce_BTL.Pages
         protected global::System.Web.UI.WebControls.Button btn_Deleta_5;
 
         /// <summary>
+        /// lbl_page_pre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_page_pre;
+
+        /// <summary>
         /// btn_page_previous control.
         /// </summary>
         /// <remarks>
@@ -373,6 +391,15 @@ namespace WebIntroduce_BTL.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_page_previous;
+
+        /// <summary>
+        /// lbl_page_1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_page_1;
 
         /// <summary>
         /// btn_page_1 control.
@@ -384,6 +411,15 @@ namespace WebIntroduce_BTL.Pages
         protected global::System.Web.UI.WebControls.Button btn_page_1;
 
         /// <summary>
+        /// lbl_page_2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_page_2;
+
+        /// <summary>
         /// btn_page_2 control.
         /// </summary>
         /// <remarks>
@@ -391,6 +427,15 @@ namespace WebIntroduce_BTL.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_page_2;
+
+        /// <summary>
+        /// lbl_page_3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_page_3;
 
         /// <summary>
         /// btn_page_3 control.
@@ -402,6 +447,15 @@ namespace WebIntroduce_BTL.Pages
         protected global::System.Web.UI.WebControls.Button btn_page_3;
 
         /// <summary>
+        /// lbl_page_4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_page_4;
+
+        /// <summary>
         /// btn_page_4 control.
         /// </summary>
         /// <remarks>
@@ -409,6 +463,15 @@ namespace WebIntroduce_BTL.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_page_4;
+
+        /// <summary>
+        /// lbl_page_5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_page_5;
 
         /// <summary>
         /// btn_page_5 control.
@@ -420,6 +483,15 @@ namespace WebIntroduce_BTL.Pages
         protected global::System.Web.UI.WebControls.Button btn_page_5;
 
         /// <summary>
+        /// lbl_page_6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_page_6;
+
+        /// <summary>
         /// btn_page_6 control.
         /// </summary>
         /// <remarks>
@@ -429,6 +501,15 @@ namespace WebIntroduce_BTL.Pages
         protected global::System.Web.UI.WebControls.Button btn_page_6;
 
         /// <summary>
+        /// lbl_page_7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_page_7;
+
+        /// <summary>
         /// btn_page_7 control.
         /// </summary>
         /// <remarks>
@@ -436,6 +517,15 @@ namespace WebIntroduce_BTL.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_page_7;
+
+        /// <summary>
+        /// lbl_page_next control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_page_next;
 
         /// <summary>
         /// btn_page_next control.
