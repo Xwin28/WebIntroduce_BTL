@@ -162,10 +162,10 @@
                     </div>
                 </nav>
 
-                <nav class="container border border-secondary" style="background-color: #111111; height: 800px;">
+                <nav class="container border border-secondary" style="background-color: #111111; height: auto; margin-bottom: 10px;">
                     <div class="row">
                         <!--. Column Products..-->
-                        <div class="col-sm" style="padding-left: 30px;">
+                        <div class="col-sm" style="padding-left: 30px; margin-bottom:50px">
                             <p style="margin-top: 10px;">
                                 <asp:Label ID="lbl_Title" runat="server" Text="Products Pages" Font-Size="20px" ForeColor="White" Font-Bold="True"></asp:Label>
                                 <asp:DropDownList class="btn btn-danger btn-sm dropdown-toggle dropdown-toggle-split" ID="DropSort" runat="server" Style="float: right" Font-Bold="True" Font-Size="15px" AutoPostBack="True" OnSelectedIndexChanged="DropSort_SelectedIndexChanged">
@@ -254,60 +254,64 @@
                                 </div>
                             </div>
 
+                            <!-- to Top Button  -->
                             <button onclick="toTop(); return false" id="backtotop" class="btn btn-lightbtn btn-secondary btn-sm">^</button>
+
                             <nav aria-label="Search results pages" style="margin-top: 10px;">
+                                <asp:Button class="btn " ID="btn_CreateNew" runat="server" Style="float: left" Text="New Product" OnClientClick="return false" BackColor="#FF2449" Font-Bold="True" ForeColor="White" />
                                 <ul class="pagination pagination-sms justify-content-end">
                                     <li class="page-item" <%=mSpagePre %>>
-                                        <a <%=mDis_pre%> onclick="btn_Page_pre();" href="javascript:void('0');"   class="page-link border-0" >
+                                        <a <%=mDis_pre%> onclick="btn_Page_pre();" href="javascript:void('0');" class="page-link border-0">
                                             <asp:Label ID="lbl_page_pre" runat="server" Text="Previous" ForeColor="White"></asp:Label></a>
-                                        <asp:Button CausesValidation="False" class="page-link border-0" Style="background-color: #111111; display: none; " ID="btn_page_previous" runat="server" Text="Previous" ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_previous_Click" />
+                                        <asp:Button CausesValidation="False" class="page-link border-0" Style="background-color: #111111; display: none;" ID="btn_page_previous" runat="server" Text="Previous" ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_previous_Click" />
                                     </li>
                                     <li class="page-item" <%=mSpage_1 %>>
-                                        <a <%=mDis_1 %> onclick="btn_Page_1()" href="javascript:void('0');" class="page-link border-0" >
+                                        <a <%=mDis_1 %> onclick="btn_Page_1()" href="javascript:void('0');" class="page-link border-0">
                                             <asp:Label ID="lbl_page_1" runat="server" Text="1" ForeColor="White"></asp:Label></a>
                                         <asp:Button class="page-link border-0" Style="background-color: #111111; display: none;" ID="btn_page_1" runat="server" Text="1" ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_1_Click" />
                                     </li>
                                     <li class="page-item" <%=mSpage_2 %>>
-                                        <a <%=mDis_2 %>  onclick="btn_Page_2()" href="javascript:void('0');" class="page-link border-0" >
+                                        <a <%=mDis_2 %> onclick="btn_Page_2()" href="javascript:void('0');" class="page-link border-0">
                                             <asp:Label ID="lbl_page_2" runat="server" Text="..." ForeColor="White"></asp:Label></a>
                                         <asp:Button class="page-link border-0" Style="background-color: #111111; display: none;" ID="btn_page_2" runat="server" Text="..." ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_2_Click" />
                                     </li>
                                     <li class="page-item" <%=mSpage_3 %>>
-                                        <a <%=mDis_3 %>  onclick="btn_Page_3()" href="javascript:void('0');" class="page-link border-0" >
+                                        <a <%=mDis_3 %> onclick="btn_Page_3()" href="javascript:void('0');" class="page-link border-0">
                                             <asp:Label ID="lbl_page_3" runat="server" Text="3" ForeColor="White"></asp:Label></a>
                                         <asp:Button class="page-link border-0" Style="background-color: #111111; display: none;" ID="btn_page_3" runat="server" Text="3" ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_3_Click" />
                                     </li>
                                     <li class="page-item" <%=mSpage_4 %>>
-                                        <a <%=mDis_4 %> onclick="btn_Page_4()" href="javascript:void('0');" class="page-link border-0" >
+                                        <a <%=mDis_4 %> onclick="btn_Page_4()" href="javascript:void('0');" class="page-link border-0">
                                             <asp:Label ID="lbl_page_4" runat="server" Text="4" ForeColor="White"></asp:Label></a>
                                         <asp:Button class="page-link border-0" Style="background-color: #111111; display: none;" ID="btn_page_4" runat="server" Text="4" ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_4_Click" />
                                     </li>
                                     <li class="page-item" <%=mSpage_5 %>>
-                                        <a <%=mDis_5 %> onclick="btn_Page_5()" href="javascript:void('0');" class="page-link border-0" >
+                                        <a <%=mDis_5 %> onclick="btn_Page_5()" href="javascript:void('0');" class="page-link border-0">
                                             <asp:Label ID="lbl_page_5" runat="server" Text="5" ForeColor="White"></asp:Label></a>
                                         <asp:Button class="page-link border-0" Style="background-color: #111111; display: none;" ID="btn_page_5" runat="server" Text="5" ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_5_Click" />
                                     </li>
                                     <li class="page-item" <%=mSpage_6 %>>
-                                        <a <%=mDis_6 %> onclick="btn_Page_6()" href="javascript:void('0');" class="page-link border-0" >
+                                        <a <%=mDis_6 %> onclick="btn_Page_6()" href="javascript:void('0');" class="page-link border-0">
                                             <asp:Label ID="lbl_page_6" runat="server" Text="..." ForeColor="White"></asp:Label></a>
                                         <asp:Button class="page-link border-0" Style="background-color: #111111; display: none;" ID="btn_page_6" runat="server" Text="..." ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_6_Click" />
                                     </li>
                                     <li class="page-item" <%=mSpage_7 %>>
-                                        <a <%=mDis_7%> onclick="btn_Page_7()" href="javascript:void('0');" class="page-link border-0" >
+                                        <a <%=mDis_7%> onclick="btn_Page_7()" href="javascript:void('0');" class="page-link border-0">
                                             <asp:Label ID="lbl_page_7" runat="server" Text="7" ForeColor="White"></asp:Label></a>
                                         <asp:Button class="page-link border-0" Style="background-color: #111111; display: none;" ID="btn_page_7" runat="server" Text="7" ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_7_Click" />
                                     </li>
                                     <li class="page-item" <%=mSpageNext %>>
-                                        <a <%=mDis_next%> onclick="btn_Page_next()" href="javascript:void('0');" class="page-link border-0" >
+                                        <a <%=mDis_next%> onclick="btn_Page_next()" href="javascript:void('0');" class="page-link border-0">
                                             <asp:Label ID="lbl_page_next" runat="server" Text="Next" ForeColor="White"></asp:Label></a>
                                         <asp:Button class="page-link border-0" Style="background-color: #111111; display: none;" ID="btn_page_next" runat="server" Text="Next" ForeColor="White" BorderStyle="None" EnableViewState="False" OnClick="btn_page_next_Click" />
                                     </li>
                                 </ul>
                             </nav>
+
                         </div>
 
                         <!-- Column Pages  -->
-                        <div class="col-sm" style="padding-right: 30px;">
+                        <div class="col-sm" style="padding-right: 30px; margin-bottom:50px">
 
                             <p style="margin-top: 10px;">
                                 <asp:Label ID="Label10" runat="server" Text="Static Pages" Font-Size="20px" ForeColor="White" Font-Bold="True"></asp:Label>
@@ -355,7 +359,10 @@
                                 </div>
                             </div>
 
-
+                            <p style="margin-top: 10px;">
+                                <asp:Label runat="server" Text="Summary" Font-Size="20px" ForeColor="White" Font-Bold="True"></asp:Label>
+                                <a href="SignInPage.aspx" style="font-size: 13px; color:darkgray" rel="follow, index">&nbsp; View more &#8594;</a>
+                            </p>
                         </div>
 
 
@@ -367,6 +374,13 @@
 
             </div>
 
+
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">
+                <asp:Label ID="Label11" runat="server" Text="Copyright @ by Xwin28" Font-Size="13" ForeColor="#999999"></asp:Label>
+            </div>
+            <!-- Copyright -->
         </div>
     </form>
 </body>

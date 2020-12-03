@@ -375,6 +375,15 @@ namespace WebIntroduce_BTL.Pages
         protected global::System.Web.UI.WebControls.Button btn_Deleta_5;
 
         /// <summary>
+        /// btn_CreateNew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_CreateNew;
+
+        /// <summary>
         /// lbl_page_pre control.
         /// </summary>
         /// <remarks>
@@ -652,5 +661,14 @@ namespace WebIntroduce_BTL.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button11;
+
+        /// <summary>
+        /// Label11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label11;
     }
 }

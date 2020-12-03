@@ -71,65 +71,20 @@ namespace WebIntroduce_BTL.Pages
                 lbl_page_pre.ForeColor = Color.White;
                 PostBack();
             }
-            else if (m_NumberProduct > 10 && m_NumberProduct <= 15)
+            else
             {
+                lbl_page_next.ForeColor = Color.White;
+                lbl_page_pre.ForeColor = Color.White;
                 m_Current_Page = int.Parse(lbl_page_2.Text);
                 Session["m_Current_Page"] = m_Current_Page;
-                 
                 PostBack();
-            }
-            else if (m_NumberProduct > 15 && m_NumberProduct <= 20)
-            {
-                m_Current_Page = int.Parse(lbl_page_2.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-            }
-            else if (m_NumberProduct > 20 && m_NumberProduct <= 25)
-            {
-                m_Current_Page = int.Parse(lbl_page_2.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-            }
-            else if (m_NumberProduct > 25 && m_NumberProduct <= 30)
-            {
-                m_Current_Page = int.Parse(lbl_page_2.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-            }
-            else if (m_NumberProduct > 30 && m_NumberProduct <= 35)
-            {
-                m_Current_Page = int.Parse(lbl_page_2.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-            }
-            else if (m_NumberProduct > 35 && m_Current_Page < 5)
-            {
-                m_Current_Page = int.Parse(lbl_page_2.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-            }
-            else if (m_NumberProduct > 35 && m_Current_Page > (m_NumberProduct - 5))
-            {
-                // Enable Flase
-            }
-            else if (m_NumberProduct > 35 && m_Current_Page < (m_NumberProduct - 5) && m_Current_Page > 5)
-            {
-                // Enable Flase
+
             }
         }
 
         protected void btn_page_3_Click(object sender, EventArgs e)
         {
-            if (m_NumberProduct > 5 && m_NumberProduct <= 10)
-            {
-                // not show <12>
-            }
-            else if (m_NumberProduct > 10 && m_NumberProduct <= 15)
+            if (m_NumberProduct > 10 && m_NumberProduct <= 15)
             {   //<123>
                 m_Current_Page = int.Parse(lbl_page_3.Text);
                 Session["m_Current_Page"] = m_Current_Page;
@@ -139,69 +94,20 @@ namespace WebIntroduce_BTL.Pages
                 lbl_page_pre.ForeColor = Color.White;
                 PostBack();
             }
-            else if (m_NumberProduct > 15 && m_NumberProduct <= 20)
-            {   //<1234>
-                m_Current_Page = int.Parse(lbl_page_3.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-            }
-            else if (m_NumberProduct > 20 && m_NumberProduct <= 25)
-            {   //<12345>
-                m_Current_Page = int.Parse(lbl_page_3.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-            }
-            else if (m_NumberProduct > 25 && m_NumberProduct <= 30)
-            {   //<123456>
-                m_Current_Page = int.Parse(lbl_page_3.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-            }
-            else if (m_NumberProduct > 30 && m_NumberProduct <= 35)
-            {   //<1234567>
-                m_Current_Page = int.Parse(lbl_page_3.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-            }
-            else if (m_NumberProduct > 35 && m_Current_Page < 5)
-            {   //<12345...last>
-                m_Current_Page = int.Parse(lbl_page_3.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-            }
-            else if (m_NumberProduct > 35 && m_Current_Page > (m_NumberProduct - 5))
+            else
             {
-                //<1...34567>
+                lbl_page_next.ForeColor = Color.White;
+                lbl_page_pre.ForeColor = Color.White;
                 m_Current_Page = int.Parse(lbl_page_3.Text);
                 Session["m_Current_Page"] = m_Current_Page;
-                 
                 PostBack();
             }
-            else if (m_NumberProduct > 35 && m_Current_Page <= (m_NumberProduct - 4) && m_Current_Page >= 5)
-            {
-                m_Current_Page = int.Parse(lbl_page_3.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-            }
+
         }
 
         protected void btn_page_4_Click(object sender, EventArgs e)
         {
-            if (m_NumberProduct > 5 && m_NumberProduct <= 10)
-            {
-                //<12>
-            }
-            else if (m_NumberProduct > 10 && m_NumberProduct <= 15)
-            {
-                //<123>
-            }
-            else if (m_NumberProduct > 15 && m_NumberProduct <= 20)
+            if (m_NumberProduct > 15 && m_NumberProduct <= 20)
             {
                 //<1234>
                 m_Current_Page = int.Parse(lbl_page_4.Text);
@@ -212,67 +118,22 @@ namespace WebIntroduce_BTL.Pages
                 lbl_page_pre.ForeColor = Color.White;
                 PostBack();
             }
-            else if (m_NumberProduct > 20 && m_NumberProduct <= 25)
+            else
             {
                 //<12345>
+                lbl_page_next.ForeColor = Color.White;
+                lbl_page_pre.ForeColor = Color.White;
                 m_Current_Page = int.Parse(lbl_page_4.Text);
                 Session["m_Current_Page"] = m_Current_Page;
                  
                 PostBack();
             }
-            else if (m_NumberProduct > 25 && m_NumberProduct <= 30)
-            {
-                //<123456>
-                m_Current_Page = int.Parse(lbl_page_4.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-            }
-            else if (m_NumberProduct > 30 && m_NumberProduct <= 35)
-            {
-                //<1234567>
-                m_Current_Page = int.Parse(lbl_page_4.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-            }
-            else if (m_NumberProduct > 35 && m_Current_Page < 5)
-            {
-                //<12345...7>
-                m_Current_Page = int.Parse(lbl_page_4.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-            }
-            else if (m_NumberProduct > 35 && m_Current_Page > (m_NumberProduct - 5))
-            {
-                //<1..34567>
-                m_Current_Page = int.Parse(lbl_page_4.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-            }
-            else if (m_NumberProduct > 35 && m_Current_Page < (m_NumberProduct - 5) && m_Current_Page > 5)
-            {
-                //<1...3 4 5...7> 4 = currenPages
-            }
+
         }
 
         protected void btn_page_5_Click(object sender, EventArgs e)
         {
-            if (m_NumberProduct > 5 && m_NumberProduct <= 10)
-            {
-                //<12>
-            }
-            else if (m_NumberProduct > 10 && m_NumberProduct <= 15)
-            {
-                //<123>
-            }
-            else if (m_NumberProduct > 15 && m_NumberProduct <= 20)
-            {
-                //<1234>
-            }
-            else if (m_NumberProduct > 20 && m_NumberProduct <= 25)
+            if (m_NumberProduct > 20 && m_NumberProduct <= 25)
             {
                 //<12345>
                 m_Current_Page = int.Parse(lbl_page_5.Text);
@@ -283,69 +144,22 @@ namespace WebIntroduce_BTL.Pages
                 lbl_page_pre.ForeColor = Color.White;
                 PostBack();
             }
-            else if (m_NumberProduct > 25 && m_NumberProduct <= 30)
+            else
             {
                 //<123456>
+                lbl_page_next.ForeColor = Color.White;
+                lbl_page_pre.ForeColor = Color.White;
                 m_Current_Page = int.Parse(lbl_page_5.Text);
                 Session["m_Current_Page"] = m_Current_Page;
+                 
+                PostBack();
+            }
 
-                 
-                PostBack();
-            }
-            else if (m_NumberProduct > 30 && m_NumberProduct <= 35)
-            {
-                //<1234567>
-                m_Current_Page = int.Parse(lbl_page_5.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                SwitchPageColor(5);
-                PostBack();
-            }
-            else if (m_NumberProduct > 35 && m_Current_Page < 5)
-            {
-                //<123456...7>
-                m_Current_Page = int.Parse(lbl_page_5.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-            }
-            else if (m_NumberProduct > 35 && m_Current_Page > (m_NumberProduct - 5))
-            {
-                //<1...34567>
-                m_Current_Page = int.Parse(lbl_page_5.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-            }
-            else if (m_NumberProduct > 35 && m_Current_Page <= (m_NumberProduct - 5) && m_Current_Page >= 5)
-            {
-                //<...3 4 5 ... 7>
-                m_Current_Page = int.Parse(lbl_page_5.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                //Because active page in center  <...3 '4' 5 ... 7>
-                 
-                PostBack();
-            }
         }
 
         protected void btn_page_6_Click(object sender, EventArgs e)
         {
-            if (m_NumberProduct > 5 && m_NumberProduct <= 10)
-            {
-                //<12>
-            }
-            else if (m_NumberProduct > 10 && m_NumberProduct <= 15)
-            {
-                //<123>
-            }
-            else if (m_NumberProduct > 15 && m_NumberProduct <= 20)
-            {
-                //<1234>
-            }
-            else if (m_NumberProduct > 20 && m_NumberProduct <= 25)
-            {
-                //<12345>
-            }
-            else if (m_NumberProduct > 25 && m_NumberProduct <= 30)
+            if (m_NumberProduct > 25 && m_NumberProduct <= 30)
             {
                 //<123456>
                 m_Current_Page = int.Parse(lbl_page_6.Text);
@@ -356,29 +170,14 @@ namespace WebIntroduce_BTL.Pages
                 lbl_page_pre.ForeColor = Color.White;
                 PostBack();
             }
-            else if (m_NumberProduct > 30 && m_NumberProduct <= 35)
+            else
             {
                 //<1234567>
-
+                lbl_page_next.ForeColor = Color.White;
+                lbl_page_pre.ForeColor = Color.White;
                 m_Current_Page = int.Parse(lbl_page_6.Text);
                 Session["m_Current_Page"] = m_Current_Page;
-                 
                 PostBack();
-            }
-            else if (m_NumberProduct > 35)
-            {
-                //<1..34567>
-                m_Current_Page = int.Parse(lbl_page_6.Text);
-                Session["m_Current_Page"] = m_Current_Page;
-                 
-                PostBack();
-
-            }
-            else if (m_NumberProduct > 35 && m_Current_Page <= (m_NumberProduct - 4) && m_Current_Page >= 5)
-            {
-                //<1... 3 4 5 ... 7>
-                //not set
-
             }
         }
 
@@ -720,6 +519,7 @@ namespace WebIntroduce_BTL.Pages
             }
             else
             {
+
                 //Response.Write("<script>window.scrollTo({top: 0,left: 0,behavior: 'smooth'});alert('Thank you for visiting W3Schools!'); ");
                 m_Current_Page = int.Parse(Session["m_Current_Page"].ToString());
                 m_NumberProduct = int.Parse(Session["m_NumberProduct"].ToString());
@@ -959,7 +759,7 @@ namespace WebIntroduce_BTL.Pages
                     SetPageActive();
                     mDis_6 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"";
                 }
-                else if (m_NumberProduct > 35 && m_Current_Page > (m_NumberPage - 5))
+                else if (m_NumberProduct > 35 && m_Current_Page > (m_NumberPage - 4))
                 {
                     mSpagePre = null;
                     mSpageNext = null;
@@ -1007,7 +807,7 @@ namespace WebIntroduce_BTL.Pages
                     mDis_2 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"";
                     mDis_6 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"";
                 }
-                else if (m_NumberProduct > 35 && m_Current_Page == (m_NumberPage - 4))
+                /*else if (m_NumberProduct > 35 && m_Current_Page == (m_NumberPage - 4))
                 {
 
                     mSpagePre = null;
@@ -1029,8 +829,8 @@ namespace WebIntroduce_BTL.Pages
                     SetPageActive();
                     mDis_6 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"";
                     mDis_2 = "style=" + "\"" + "background-color: #111111; pointer-events: none" + "\"";
-                }
-                else if (m_NumberProduct > 35 && m_Current_Page <= (m_NumberPage - 5) && m_Current_Page > 5)
+                }*/
+                else if (m_NumberProduct > 35 && m_Current_Page <= (m_NumberPage - 4) && m_Current_Page > 5)
                 {
                     
                     mSpagePre = null;
