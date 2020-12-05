@@ -161,6 +161,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\AddDetailProduct.aspx" />
     <Content Include="Pages\AdminDashboard.aspx" />
     <Content Include="Pages\SignInPage.aspx" />
     <Content Include="Resources\106_83.png" />
@@ -337,6 +338,8 @@
     <Compile Include="Controller\Account.cs" />
     <Compile Include="Controller\AccountController.cs" />
     <Compile Include="Controller\Counting.cs" />
+    <Compile Include="Controller\Product.cs" />
+    <Compile Include="Controller\ProductController.cs" />
     <Compile Include="Controller\student.cs" />
     <Compile Include="Controller\studentController.cs" />
     <Compile Include="Controller\TestController.cs" />
@@ -350,6 +353,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddDetailProduct.aspx.cs">
+      <DependentUpon>AddDetailProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AddDetailProduct.aspx.designer.cs">
+      <DependentUpon>AddDetailProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AdminDashboard.aspx.cs">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>

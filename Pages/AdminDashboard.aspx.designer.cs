@@ -33,6 +33,15 @@ namespace WebIntroduce_BTL.Pages
         protected global::System.Web.UI.WebControls.ImageButton img_icon;
 
         /// <summary>
+        /// lbl_User control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_User;
+
+        /// <summary>
         /// lbl_view control.
         /// </summary>
         /// <remarks>

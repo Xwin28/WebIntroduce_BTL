@@ -107,18 +107,9 @@
                         </li>
                     </ul>
                 </div>
-                <div>
-                    <ul class="navbar-nav mr-auto" style="float: right">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown03">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                    <div class="navbar-nav mr-auto" style="float: right">
+                        <asp:Label style="width:auto; margin-right:10px;" ID="lbl_User" runat="server" Text="😶 Admin" Font-Bold="True" Font-Size="15px" ForeColor="Silver"></asp:Label>
+                    </div>
             </nav>
 
 
@@ -155,7 +146,7 @@
                     <div class="collapse navbar-collapse" id="navbarsExample09">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <asp:Button class="btn btn-outline-secondary waves-effect" ID="btn_Product" runat="server" Text="Product" ForeColor="White" OnClientClick="return false;" />
+                                <asp:Button class="btn btn-outline-secondary waves-effect" ID="btn_Product" runat="server" Text="Product" ForeColor="White" OnClientClick="return false;" BorderColor="Red" Font-Bold="True" />
                                 <asp:Button class="btn btn-outline-secondary waves-effect" ID="btn_Analysis" runat="server" Text="Analytics" ForeColor="White" />
                             </li>
                         </ul>
@@ -378,7 +369,7 @@
 
             <!-- Copyright -->
             <div class="footer-copyright text-center py-3">
-                <asp:Label ID="Label11" runat="server" Text="Copyright @ by Xwin28" Font-Size="13" ForeColor="#999999"></asp:Label>
+                <asp:Label ID="Label11" runat="server" Text="Copyright &#169; by Xwin28" Font-Size="13" ForeColor="#999999"></asp:Label>
             </div>
             <!-- Copyright -->
         </div>
