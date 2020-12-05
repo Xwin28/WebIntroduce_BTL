@@ -252,6 +252,7 @@ namespace WebIntroduce_BTL.Pages
             //Post Back
             if (!IsPostBack)
             {
+                
                 lbl_page_1.ForeColor = Color.FromArgb(59, 110, 140);
                 lbl_page_pre.ForeColor = Color.Gray;
                 //Run On First Time
@@ -519,7 +520,7 @@ namespace WebIntroduce_BTL.Pages
             }
             else
             {
-
+                
                 //Response.Write("<script>window.scrollTo({top: 0,left: 0,behavior: 'smooth'});alert('Thank you for visiting W3Schools!'); ");
                 m_Current_Page = int.Parse(Session["m_Current_Page"].ToString());
                 m_NumberProduct = int.Parse(Session["m_NumberProduct"].ToString());
