@@ -23,7 +23,7 @@
         }
       }
     </style>
-    <script src="../Scripts/jquery-3.4.1.slim.js"></script>
+    <script src="../Scripts/jquery-3.5.1.min.js"></script>
     <link href="../Scripts/bootstrap-4.5.3-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../Scripts/CSS/signin.css" rel="stylesheet" />
 </head>
