@@ -1,0 +1,23 @@
+﻿body {
+}
+
+.center {
+    padding-top: 10px;
+    margin: auto;
+    width: 60%;
+}
+
+.icon4_5{
+    width: 220px;
+    height: 275px;
+}
+
+.icon3_2 {
+    width: 150px;
+    height: 100px;
+}
+
+.icon18_15 {
+    width: 18px;
+    height: 15px;
+}

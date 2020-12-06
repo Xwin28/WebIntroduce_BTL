@@ -38,7 +38,7 @@
                 opacity: 1;
             }
     </style>
-    <script src="../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../Scripts/jquery-3.5.1.min.js"></script>
     <script src="../Scripts/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
     <link href="../Scripts/CSS/navbar.css" rel="stylesheet" />
     <link href="../Scripts/bootstrap-4.5.3-dist/css/bootstrap.min.css" rel="stylesheet" />

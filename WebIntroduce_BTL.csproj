@@ -165,6 +165,7 @@
     <Content Include="Pages\AdminDashboard.aspx" />
     <Content Include="Pages\SignInPage.aspx" />
     <Content Include="Resources\106_83.png" />
+    <Content Include="Resources\IconProduct.png" />
     <Content Include="Resources\IconSignIn.png" />
     <Content Include="Resources\instagram_3.jpg" />
     <Content Include="Scripts\bootstrap-4.5.3-dist\css\bootstrap-grid.css.map" />
@@ -193,6 +194,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\CSS\navbar.css" />
     <Content Include="Scripts\CSS\signin.css" />
+    <Content Include="Scripts\CSS\UploadForm.css" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
