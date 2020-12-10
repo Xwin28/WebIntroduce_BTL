@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddDetailProduct.aspx.cs" Inherits="WebIntroduce_BTL.Pages.AddDetailProduct" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -44,9 +46,11 @@
     <link href="../Scripts/CSS/navbar.css" rel="stylesheet" />
     <link href="../Scripts/bootstrap-4.5.3-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../Scripts/CSS/UploadForm.css" rel="stylesheet" />
+    <script src="../Scripts/JS/ColorPicker.js"></script>
 </head>
 <body style="background-color: #1b1b1b;">
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div>
             <!-- Header Page -->
             <nav class="navbar navbar-expand navbar-dark" style="background-color: #111111; margin-top: 0px">
@@ -79,7 +83,7 @@
                     </div>
                 </nav>
 
-                <nav class="navbar navbar-expand navbar-light border border-secondary rounded" style="background-color: #111111; margin-bottom: 0px;">
+                <nav class="navbar navbar-expand navbar-light sticky-top border border-secondary rounded" style="background-color: #111111; margin-bottom: 0px;">
                     <div class="collapse navbar-collapse" id="navbarsExample09">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
@@ -89,7 +93,7 @@
                         </ul>
                         <div class="nav-item" style="float: right;">
                             <a href="#" style="color: wheat; font-size: 13px">View Page &nbsp;</a>
-                            <asp:Button class="btn btn-danger waves-effect" ID="btn_Save" runat="server" Text="✒ Save" ForeColor="White" Font-Bold="False" Font-Size="13px" />
+                            <asp:Button class="btn btn-danger waves-effect" ID="btn_Save" runat="server" Text="✒ Save" ForeColor="White" Font-Bold="False" Font-Size="13px" OnClick="btn_Save_Click" />
                         </div>
 
                     </div>
@@ -172,6 +176,21 @@
                                             <asp:Image CssClass="icon3_2" ID="img_IconEditProduct" runat="server" ImageUrl="~/Resources/IconProduct.png" />
                                         </div>
 
+                                        <!-- Color Picker -->
+                                        <asp:Label runat="server" Text="Page Color" Font-Bold="True" Font-Size="15px" ForeColor="#999999"></asp:Label><br />
+                                        <div>
+                                            <asp:TextBox class="form-control input-sm" ID="txt_PageColor" runat="server" Enabled="True" ForeColor="White" BackColor="#111111" Text="#FFFFFF"></asp:TextBox>
+                                            <div id="view" style="width: 60px; height: 60px; border: 1px solid #000; margin: 0px; float: left">
+                                            </div>
+                                            <asp:Button class="btn btn-secondary btn-sm" ID="btncolor" runat="server" Text="SelectColor" />
+                                            <ajaxToolkit:ColorPickerExtender ID="ColorPickerExtender1" runat="server"
+                                                TargetControlID="txt_PageColor"
+                                                SampleControlID="view"
+                                                PopupButtonID="btncolor"
+                                                PopupPosition="Center"
+                                                OnClientColorSelectionChanged="Color_Change" />
+                                        </div>
+                                        <!-- Color Picker END -->
                                     </div>
                                 </div>
 
@@ -185,6 +204,156 @@
 
                     </div>
                 </div>
+
+                <!-- Header -->
+                <!-- Basic Infor -->
+
+                <div class="row rounded box-shadow border border-secondary" style="margin: 0px; padding-top: 0px; background-color: #111111;">
+                    <!-- cot 1 -->
+                    <div class="col-sm " style="margin-bottom: 20px">
+                        <div class="container">
+                            <div class="my-3 pt-3 pl-3 pr-3  " style="margin-top: 0px; padding-top: 0px;">
+                                <h6 class="border-bottom pb-2 mb-0">
+                                    <asp:Label runat="server" Text="Header" Font-Size="20px" ForeColor="Gold"></asp:Label></h6>
+
+                                <div style="margin-top: 20px;">
+                                    <!-- Header Image BackGround -->
+                                    <asp:Label runat="server" Text="Header Image BackGround" Font-Bold="True" Font-Size="15px" ForeColor="#999999"></asp:Label>
+                                    &nbsp;
+                            <asp:CheckBox ID="CheckBox1" runat="server" Text="Show" Font-Bold="True" Checked="True" ForeColor="#999999" Font-Size="15px" />
+                                    <br />
+                                    <asp:FileUpload class="btn btn-secondary btn-sm" ID="FileUpload1" runat="server" ForeColor="White" Visible="true" />
+                                    <div style="padding-top: 10px; margin-bottom: 20px;">
+                                        <asp:Image CssClass="img-fluid" ID="Image1" runat="server" ImageUrl="~/Resources/1800.png" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col 1-->
+
+                    </div>
+                    <!-- cot 2 -->
+                    <div class="col-sm" style="margin-bottom: 50px; margin-top: 65px;">
+                        <div class="container">
+                            <div style="margin-top: 20px">
+                                <!-- File upload ROW -->
+                                <div class="row">
+                                    <!-- cot hinh 1-->
+                                    <div class="col-sm">
+                                        <!-- Name -->
+                                        <asp:Label runat="server" Text="Icon Product (560x700 px) or ratio (4/5) " Font-Bold="True" Font-Size="15px" ForeColor="#999999"></asp:Label><br />
+                                        <asp:FileUpload class="btn btn-secondary btn-sm" ID="FileUpload7" runat="server" ForeColor="White" Visible="true" />
+                                        <div style="padding-top: 10px; margin-bottom: 20px;">
+                                            <asp:Image CssClass="icon4_5" ID="Image7" runat="server" ImageUrl="~/Resources/IconProduct.png" />
+                                        </div>
+                                    </div>
+                                    <!-- cot hinh 2-->
+                                    <div class="col-sm">
+                                        <!-- Name -->
+                                        <asp:Label runat="server" Text="Icon Edit Product (150x100 px) or ratio (3/2) " Font-Bold="True" Font-Size="15px" ForeColor="#999999"></asp:Label><br />
+                                        <asp:FileUpload class="btn btn-secondary btn-sm" ID="FileUpload8" runat="server" ForeColor="White" Visible="true" />
+                                        <div style="padding-top: 10px; margin-bottom: 20px;">
+                                            <asp:Image CssClass="icon3_2" ID="Image8" runat="server" ImageUrl="~/Resources/IconProduct.png" />
+                                        </div>
+
+                                        <!-- Color Picker -->
+                                        <asp:Label runat="server" Text="Page Color" Font-Bold="True" Font-Size="15px" ForeColor="#999999"></asp:Label><br />
+                                        <div>
+                                            <asp:TextBox class="form-control input-sm" ID="TextBox3" runat="server" Enabled="True" ForeColor="White" BackColor="#111111" Text="#FFFFFF"></asp:TextBox>
+                                            <div id="view2" style="width: 60px; height: 60px; border: 1px solid #000; margin: 0px; float: left">
+                                            </div>
+                                            <asp:Button class="btn btn-secondary btn-sm" ID="Button2" runat="server" Text="SelectColor" />
+                                            <ajaxToolkit:ColorPickerExtender ID="ColorPickerExtender3" runat="server"
+                                                TargetControlID="txt_PageColor"
+                                                SampleControlID="view2"
+                                                PopupButtonID="btncolor"
+                                                PopupPosition="Center"
+                                                OnClientColorSelectionChanged="Color_Change" />
+                                        </div>
+                                        <!-- Color Picker END -->
+                                    </div>
+                                </div>
+
+                                <!-- end col 2-->
+                            </div>
+                            <!-- End Row-->
+                        </div>
+
+                        <!--End Contain-->
+
+
+                    </div>
+                </div>
+
+
+
+
+
+                <!-- cot 1 -->
+                <div class="rounded box-shadow border border-secondary" style="margin: 0px; padding-top: 0px; background-color: #111111;">
+                    <div class="my-3 pt-3 pl-3 pr-3  " style="margin-top: 0px; padding-top: 0px;">
+                        <h6 class="border-bottom pb-2 mb-0">
+                            <asp:Label runat="server" Text="Header" Font-Size="20px" ForeColor="Gold"></asp:Label></h6>
+
+                        <div style="margin-top: 20px;">
+                            <!-- Header Image BackGround -->
+                            <asp:Label runat="server" Text="Header Image BackGround" Font-Bold="True" Font-Size="15px" ForeColor="#999999"></asp:Label>
+                            &nbsp;
+                            <asp:CheckBox ID="Check_ShowHeaderImageBackGround" runat="server" Text="Show" Font-Bold="True" Checked="True" ForeColor="#999999" Font-Size="15px" />
+                            <br />
+                            <asp:FileUpload class="btn btn-secondary btn-sm" ID="upload_HeaderImageBackGround" runat="server" ForeColor="White" Visible="true" />
+                            <div style="padding-top: 10px; margin-bottom: 20px;">
+                                <asp:Image CssClass="img-fluid" ID="img_upload_HeaderImageBackGround" runat="server" ImageUrl="~/Resources/1800.png" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px">
+                        <!-- File upload ROW -->
+                        <div class="row my-3 pt-3 pl-3 pr-3  ">
+                            <!-- cot hinh 1-->
+                            <div class="col-sm">
+                                <!-- Name -->
+                                <asp:Label runat="server" Text="Icon Product (560x700 px) or ratio (4/5) " Font-Bold="True" Font-Size="15px" ForeColor="#999999"></asp:Label><br />
+                                <asp:FileUpload class="btn btn-secondary btn-sm" ID="FileUpload5" runat="server" ForeColor="White" Visible="true" />
+                                <div style="padding-top: 10px; margin-bottom: 20px;">
+                                    <asp:Image CssClass="icon4_5" ID="Image5" runat="server" ImageUrl="~/Resources/IconProduct.png" />
+                                </div>
+                            </div>
+                            <!-- cot hinh 2-->
+                            <div class="col-sm">
+                                <!-- Name -->
+                                <asp:Label runat="server" Text="Icon Edit Product (150x100 px) or ratio (3/2) " Font-Bold="True" Font-Size="15px" ForeColor="#999999"></asp:Label><br />
+                                <asp:FileUpload class="btn btn-secondary btn-sm" ID="FileUpload6" runat="server" ForeColor="White" Visible="true" />
+                                <div style="padding-top: 10px; margin-bottom: 20px;">
+                                    <asp:Image CssClass="icon3_2" ID="Image6" runat="server" ImageUrl="~/Resources/1800.png" />
+                                </div>
+
+                                <!-- Color Picker -->
+                                <asp:Label runat="server" Text="Page Color" Font-Bold="True" Font-Size="15px" ForeColor="#999999"></asp:Label><br />
+                                <div>
+                                    <asp:TextBox class="form-control input-sm" ID="TextBox2" runat="server" Enabled="True" ForeColor="White" BackColor="#111111" Text="#FFFFFF"></asp:TextBox>
+                                    <div id="view1" style="width: 60px; height: 60px; border: 1px solid #000; margin: 0px; float: left">
+                                    </div>
+                                    <asp:Button class="btn btn-secondary btn-sm" ID="Button1" runat="server" Text="SelectColor" />
+                                    <ajaxToolkit:ColorPickerExtender ID="ColorPickerExtender2" runat="server"
+                                        TargetControlID="txt_PageColor"
+                                        SampleControlID="view1"
+                                        PopupButtonID="btncolor"
+                                        PopupPosition="Center"
+                                        OnClientColorSelectionChanged="Color_Change" />
+                                </div>
+                                <!-- Color Picker END -->
+                            </div>
+                        </div>
+
+                        <!-- end col 2-->
+                    </div>
+
+                </div>
+
+
+
             </div>
         </div>
     </form>

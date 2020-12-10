@@ -13,5 +13,12 @@ namespace WebIntroduce_BTL.Pages
         {
 
         }
+
+        protected void btn_Save_Click(object sender, EventArgs e)
+        {
+            //lbl_test.Text = Request["txt_ColorPage"].ToString();
+        }
+
+       
     }
 }
